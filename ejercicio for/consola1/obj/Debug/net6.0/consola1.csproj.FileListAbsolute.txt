@@ -1,0 +1,14 @@
+C:\Users\faill\source\repos\for-promedio\consola1\bin\Debug\net6.0\consola1.exe
+C:\Users\faill\source\repos\for-promedio\consola1\bin\Debug\net6.0\consola1.deps.json
+C:\Users\faill\source\repos\for-promedio\consola1\bin\Debug\net6.0\consola1.runtimeconfig.json
+C:\Users\faill\source\repos\for-promedio\consola1\bin\Debug\net6.0\consola1.dll
+C:\Users\faill\source\repos\for-promedio\consola1\bin\Debug\net6.0\consola1.pdb
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\consola1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\consola1.AssemblyInfoInputs.cache
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\consola1.AssemblyInfo.cs
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\consola1.csproj.CoreCompileInputs.cache
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\consola1.dll
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\refint\consola1.dll
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\consola1.pdb
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\consola1.genruntimeconfig.cache
+C:\Users\faill\source\repos\for-promedio\consola1\obj\Debug\net6.0\ref\consola1.dll
