@@ -12,3 +12,17 @@ C:\Users\faill\source\repos\for-promedio\Console4\obj\Debug\net6.0\refint\Consol
 C:\Users\faill\source\repos\for-promedio\Console4\obj\Debug\net6.0\Console4.pdb
 C:\Users\faill\source\repos\for-promedio\Console4\obj\Debug\net6.0\Console4.genruntimeconfig.cache
 C:\Users\faill\source\repos\for-promedio\Console4\obj\Debug\net6.0\ref\Console4.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\bin\Debug\net6.0\Console4.exe
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\bin\Debug\net6.0\Console4.deps.json
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\bin\Debug\net6.0\Console4.runtimeconfig.json
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\bin\Debug\net6.0\Console4.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\bin\Debug\net6.0\Console4.pdb
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\Console4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\Console4.AssemblyInfoInputs.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\Console4.AssemblyInfo.cs
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\Console4.csproj.CoreCompileInputs.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\Console4.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\refint\Console4.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\Console4.pdb
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\Console4.genruntimeconfig.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\Console4\obj\Debug\net6.0\ref\Console4.dll
