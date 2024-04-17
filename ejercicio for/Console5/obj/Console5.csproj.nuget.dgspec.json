@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console4\\Console4.csproj": {}
+    "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console5\\Console5.csproj": {}
   },
   "projects": {
-    "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console4\\Console4.csproj": {
+    "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console5\\Console5.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console4\\Console4.csproj",
-        "projectName": "Console4",
-        "projectPath": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console4\\Console4.csproj",
+        "projectUniqueName": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console5\\Console5.csproj",
+        "projectName": "Console5",
+        "projectPath": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console5\\Console5.csproj",
         "packagesPath": "C:\\Users\\faill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console4\\obj\\",
+        "outputPath": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\Console5\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

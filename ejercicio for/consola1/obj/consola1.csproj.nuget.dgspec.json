@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\faill\\source\\repos\\for-promedio\\consola1\\consola1.csproj": {}
+    "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\consola1\\consola1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\faill\\source\\repos\\for-promedio\\consola1\\consola1.csproj": {
+    "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\consola1\\consola1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\faill\\source\\repos\\for-promedio\\consola1\\consola1.csproj",
+        "projectUniqueName": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\consola1\\consola1.csproj",
         "projectName": "consola1",
-        "projectPath": "C:\\Users\\faill\\source\\repos\\for-promedio\\consola1\\consola1.csproj",
+        "projectPath": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\consola1\\consola1.csproj",
         "packagesPath": "C:\\Users\\faill\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\faill\\source\\repos\\for-promedio\\consola1\\obj\\",
+        "outputPath": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\ejercicio for\\consola1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
