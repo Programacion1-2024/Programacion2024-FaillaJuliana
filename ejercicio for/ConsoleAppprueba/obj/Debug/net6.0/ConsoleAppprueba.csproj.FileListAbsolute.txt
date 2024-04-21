@@ -1,0 +1,14 @@
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\bin\Debug\net6.0\ConsoleAppprueba.exe
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\bin\Debug\net6.0\ConsoleAppprueba.deps.json
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\bin\Debug\net6.0\ConsoleAppprueba.runtimeconfig.json
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\bin\Debug\net6.0\ConsoleAppprueba.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\bin\Debug\net6.0\ConsoleAppprueba.pdb
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\ConsoleAppprueba.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\ConsoleAppprueba.AssemblyInfoInputs.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\ConsoleAppprueba.AssemblyInfo.cs
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\ConsoleAppprueba.csproj.CoreCompileInputs.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\ConsoleAppprueba.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\refint\ConsoleAppprueba.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\ConsoleAppprueba.pdb
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\ConsoleAppprueba.genruntimeconfig.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\ejercicio for\ConsoleAppprueba\obj\Debug\net6.0\ref\ConsoleAppprueba.dll
