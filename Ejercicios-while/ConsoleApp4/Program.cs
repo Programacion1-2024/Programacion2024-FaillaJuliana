@@ -19,7 +19,7 @@ class Program
                         Console.WriteLine($"El total de la compra es: {total}");
 
                     }
-                Console.Write(" Ingrese la cantidad de unidades compradas : ");
+                    Console.Write(" Ingrese la cantidad de unidades compradas : ");
                     if (int.TryParse(Console.ReadLine()?.Replace(".", ","), out int unidades))
                     {
                         total += unidades * costo;
