@@ -7,42 +7,62 @@ class Program
     static void Main(String[] args)
     {
         int codigo = 1;
+        List<double> codigos = new List<double>();
+        List<int> cantidades = new List<int>();
         while (codigo != 0)
         {
+            Console.WriteLine("Registro de stock por codigos");
             Console.WriteLine("ingrese el codigo del producto (1 al 10) o 0 para salir");
             if (int.TryParse(Console.ReadLine()?.Replace(".", ","), out codigo))
             {
                 if (codigo >= 1 && codigo <= 10)
                 {
+                    codigos.Add(codigo);
                     Console.WriteLine("ingrese el precio del producto");
                     if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out double precio))
                     {
                         Console.WriteLine("ingrese la cantidad del producto");
                         if (int.TryParse(Console.ReadLine()?.Replace(".", ","), out int cantidad))
                         {
-                            
+                            cantidades.Add(cantidad);                      
                         }
                         else
                         {
-                            Console.WriteLine("Ingrese una cantidad correcto");
+                            Console.WriteLine("error");
+                            codigos.Remove(codigo);
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Ingrese un precio");
+                        Console.WriteLine("error");
+                        codigos.Remove(codigo);
+                    }
+                }
+                else if (codigo == 0)
+                {
+                    Console.WriteLine("lista de codigos");
+                    foreach (int numero in codigos)
+                    {
+                        Console.WriteLine(numero);
+                    }
+                    Console.WriteLine("stock");
+                    foreach (int numero in cantidades)
+                    {
+                        Console.WriteLine(numero);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("ingrese un codigo correcto entre el 1 y 10");
+                    Console.WriteLine("error");
                 }
             }
             else
             {
-                Console.WriteLine("Ingrese un codigo correcto entre el 1 al 10");
+                Console.WriteLine("error");
                 codigo = 1;
             }
         }
+
         while (codigo != 0)
         {
             Console.WriteLine("Ventas");
@@ -51,6 +71,7 @@ class Program
             {
                 if (codigo >= 1 && codigo <= 10)
                 {
+
                     Console.WriteLine("ingrese la cantidad vendida del producto");
                     if (int.TryParse(Console.ReadLine()?.Replace(".", ","), out int cantidad))
                     {

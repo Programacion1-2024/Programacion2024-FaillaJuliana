@@ -10,6 +10,8 @@ class Program
         int codigo = 1;
         int maximacantidad = 0;
         int codigoMaxCantidad = 0;
+        List <double> codigos = new List<double>();
+        List <int> cantidades = new List<int>();
         while (codigo != 0)
         {
             Console.WriteLine("ingrese el codigo del producto (1 al 10) o 0 para salir");
@@ -17,12 +19,14 @@ class Program
             {
                 if (codigo >= 1 && codigo <= 10)
                 {
+                    codigos.Add(codigo);
                     Console.WriteLine("ingrese el precio del producto");
                     if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out double precio))
                     {
                         Console.WriteLine("ingrese la cantidad del producto");
                         if (int.TryParse(Console.ReadLine()?.Replace(".", ","), out int cantidad))
                         {
+                            cantidades.Add(cantidad);
                             if (cantidad > maximacantidad)
                             {
                                 maximacantidad = cantidad;
@@ -31,25 +35,41 @@ class Program
                         }
                         else
                         {
-                            Console.WriteLine("Ingrese una cantidad correcto");
+                            Console.WriteLine("error");
+                            codigos.Remove(codigo);
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Ingrese un precio");
+                        Console.WriteLine("error");
+                        codigos.Remove(codigo); 
                     }
+                }
+                else if (codigo == 0)
+                {
+                    Console.WriteLine($"El producto con el codigo {codigoMaxCantidad} es el que tiene mayor cantidad: {maximacantidad}");
+
                 }
                 else
                 {
-                    Console.WriteLine("ingrese un codigo correcto entre el 1 y 10");
+                    Console.WriteLine("error");
                 }
             }
             else
             {
-                Console.WriteLine("Ingrese un codigo correcto entre el 1 al 10");
+                Console.WriteLine("error");
                 codigo = 1;
             }
         }
-        Console.WriteLine($"El producto con el codigo {codigoMaxCantidad} es el que tiene mayor cantidad: {maximacantidad}"); 
+        Console.WriteLine("lista de codigos");
+        foreach (int numero in codigos)
+        {
+            Console.WriteLine(numero);
+        }
+        Console.WriteLine("lista de cantidades");
+        foreach (int numero in cantidades)
+        {
+            Console.WriteLine(numero);
+        }
     }
 }
