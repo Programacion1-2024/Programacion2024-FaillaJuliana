@@ -12,3 +12,17 @@ C:\Users\faill\source\repos\Ejercicios-while\Console1\obj\Debug\net6.0\refint\Co
 C:\Users\faill\source\repos\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.pdb
 C:\Users\faill\source\repos\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.genruntimeconfig.cache
 C:\Users\faill\source\repos\Ejercicios-while\Console1\obj\Debug\net6.0\ref\Console1.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\bin\Debug\net6.0\Console1.exe
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\bin\Debug\net6.0\Console1.deps.json
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\bin\Debug\net6.0\Console1.runtimeconfig.json
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\bin\Debug\net6.0\Console1.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\bin\Debug\net6.0\Console1.pdb
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.AssemblyInfoInputs.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.AssemblyInfo.cs
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.csproj.CoreCompileInputs.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\refint\Console1.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.pdb
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\Console1.genruntimeconfig.cache
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Console1\obj\Debug\net6.0\ref\Console1.dll

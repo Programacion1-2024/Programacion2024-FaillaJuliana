@@ -3,10 +3,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Ingrese valores positivos para sumarlos, cuando desee parar, ingrese el 0: ");
+        Console.WriteLine("Ingrese valores positivos para sumarlos,luego se mostrara el promedio, cuando desee parar ingrese el 0: ");
         int suma = 0;
         int numero = 1;
         int contador = 0;
+        double promedio = 0;
         while (numero != 0)
         {
             if (int.TryParse(Console.ReadLine()?.Replace(".", ","), out numero))
@@ -16,6 +17,12 @@ class Program
                     suma += numero;
                     contador++;
                 }
+                else if (numero == 0)
+                {
+                    promedio = (double)suma / contador;
+                    Console.WriteLine($"La suma  da : {promedio}");
+
+                }
                 else
                 {
                     Console.WriteLine("Ingrese un valor correcto");
@@ -23,7 +30,5 @@ class Program
                 }
             }
         }
-        double promedio = (double)suma / contador;
-        Console.WriteLine($"La suma  da : {promedio}");
     }
 }

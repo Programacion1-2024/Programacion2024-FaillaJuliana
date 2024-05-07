@@ -11,6 +11,7 @@ class Program
         double costo = 1;
         while (costo != 0)
         {
+            Console.Write("Ingrese costo unitario y cantidad comprada para calcular el total (al ingresar un 0 en el costo se dara el monto final: ");
             Console.Write("Costo unitario: ");
             if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out costo))
             {

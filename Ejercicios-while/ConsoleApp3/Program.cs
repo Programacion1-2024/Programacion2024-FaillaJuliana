@@ -16,9 +16,10 @@ class Program
             if (double.TryParse(nombre, out _))
             {
                 Console.Write("Ingrese un dato correcto.");
+                contador--;
             }
             else
-            {
+            {           
                 contador++;
             }
         }  

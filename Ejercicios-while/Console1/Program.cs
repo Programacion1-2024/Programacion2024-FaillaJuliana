@@ -12,15 +12,20 @@ class Program
         {
             if (int.TryParse(Console.ReadLine()?.Replace(".", ","), out numero))
             {
-                if (numero > 0)
+                if (numero >= 0)
                 {
                     suma += numero;
                 }
                 else
                 {
-                    Console.WriteLine("Ingrese un valor correcto");
-                    numero = 1;
+                    Console.WriteLine("ingrese un valor positivo");
+
                 }
+            }
+            else
+            {
+                Console.WriteLine("ingrese un valor correcto");
+                numero = 1;
             }
         }
         Console.WriteLine($"La suma  da : {suma}");
