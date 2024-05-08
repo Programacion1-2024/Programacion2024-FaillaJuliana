@@ -15,17 +15,19 @@ class Program
             Console.Write("Costo unitario: ");
             if (double.TryParse(Console.ReadLine()?.Replace(".", ","), out costo))
             {
-                    if (costo == 0)
-                    {
-                        Console.WriteLine($"El total de la compra es: {total}");
+                if (costo == 0)
+                {
+                    Console.WriteLine($"El total de la compra es: {total}");
 
-                    }
+                }
+                else
+                {
                     Console.Write(" Ingrese la cantidad de unidades compradas : ");
                     if (int.TryParse(Console.ReadLine()?.Replace(".", ","), out int unidades))
                     {
                         total += unidades * costo;
                     }
-                
+                }
             }
             else
             {
@@ -33,7 +35,6 @@ class Program
                 costo = 1;
             }
         }
-        Console.WriteLine($"El total de la compra es: {total}");
 
     }
 }
