@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\La infiltracion de Analia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A43694C6-FEC1-471D-9D51-62D1009502EE}|La infiltracion de Analia\\La infiltracion de Analia.csproj|c:\\users\\faill\\documents\\github\\juliana-failla-programacion\\la infiltracion de analia\\la infiltracion de analia\\ejercicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A43694C6-FEC1-471D-9D51-62D1009502EE}|La infiltracion de Analia\\La infiltracion de Analia.csproj|solutionrelative:la infiltracion de analia\\ejercicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A43694C6-FEC1-471D-9D51-62D1009502EE}|La infiltracion de Analia\\La infiltracion de Analia.csproj|c:\\users\\faill\\documents\\github\\juliana-failla-programacion\\la infiltracion de analia\\la infiltracion de analia\\lainfiltraciondeanaliatests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A43694C6-FEC1-471D-9D51-62D1009502EE}|La infiltracion de Analia\\La infiltracion de Analia.csproj|solutionrelative:la infiltracion de analia\\lainfiltraciondeanaliatests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A43694C6-FEC1-471D-9D51-62D1009502EE}|La infiltracion de Analia\\La infiltracion de Analia.csproj|c:\\users\\faill\\documents\\github\\juliana-failla-programacion\\la infiltracion de analia\\la infiltracion de analia\\la infiltracion de analia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A43694C6-FEC1-471D-9D51-62D1009502EE}|La infiltracion de Analia\\La infiltracion de Analia.csproj|solutionrelative:la infiltracion de analia\\la infiltracion de analia.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LaInfiltracionDeAnaliaTests.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\La infiltracion de Analia\\La infiltracion de Analia\\LaInfiltracionDeAnaliaTests.cs",
+              "RelativeDocumentMoniker": "La infiltracion de Analia\\LaInfiltracionDeAnaliaTests.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\La infiltracion de Analia\\La infiltracion de Analia\\LaInfiltracionDeAnaliaTests.cs",
+              "RelativeToolTip": "La infiltracion de Analia\\LaInfiltracionDeAnaliaTests.cs",
+              "ViewState": "AQIAAAcBAAAAAAAAAAAAAPgAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T20:44:52.017Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ejercicio.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\La infiltracion de Analia\\La infiltracion de Analia\\Ejercicio.cs",
+              "RelativeDocumentMoniker": "La infiltracion de Analia\\Ejercicio.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\La infiltracion de Analia\\La infiltracion de Analia\\Ejercicio.cs",
+              "RelativeToolTip": "La infiltracion de Analia\\Ejercicio.cs",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAiwHUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T20:44:50.253Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "La infiltracion de Analia.csproj",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\La infiltracion de Analia\\La infiltracion de Analia\\La infiltracion de Analia.csproj",
+              "RelativeDocumentMoniker": "La infiltracion de Analia\\La infiltracion de Analia.csproj",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\La infiltracion de Analia\\La infiltracion de Analia\\La infiltracion de Analia.csproj",
+              "RelativeToolTip": "La infiltracion de Analia\\La infiltracion de Analia.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-21T20:44:47.73Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
