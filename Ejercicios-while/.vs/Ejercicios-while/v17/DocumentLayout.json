@@ -1,0 +1,101 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F4D9B5ED-3C1F-4419-9F1B-992E7764E696}|ConsoleApp3\\ConsoleApp3.csproj|c:\\users\\faill\\documents\\github\\juliana-failla-programacion\\ejercicios-while\\consoleapp3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F4D9B5ED-3C1F-4419-9F1B-992E7764E696}|ConsoleApp3\\ConsoleApp3.csproj|solutionrelative:consoleapp3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B98A3DE-3C48-4EF9-B231-3C0E1C37A75B}|ConsoleApp4\\ConsoleApp4.csproj|c:\\users\\faill\\documents\\github\\juliana-failla-programacion\\ejercicios-while\\consoleapp4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B98A3DE-3C48-4EF9-B231-3C0E1C37A75B}|ConsoleApp4\\ConsoleApp4.csproj|solutionrelative:consoleapp4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{624A99FD-1A9F-4555-AD08-F82086630B74}|ConsoleApp5\\ConsoleApp5.csproj|c:\\users\\faill\\documents\\github\\juliana-failla-programacion\\ejercicios-while\\consoleapp5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{624A99FD-1A9F-4555-AD08-F82086630B74}|ConsoleApp5\\ConsoleApp5.csproj|solutionrelative:consoleapp5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A38125E1-2807-4760-8584-6DB050A1F664}|ConsoleApp2\\ConsoleApp2.csproj|c:\\users\\faill\\documents\\github\\juliana-failla-programacion\\ejercicios-while\\consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A38125E1-2807-4760-8584-6DB050A1F664}|ConsoleApp2\\ConsoleApp2.csproj|solutionrelative:consoleapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57D1EF11-A107-4BAB-BDAC-1F6EE9F9D4CB}|Console1\\Console1.csproj|c:\\users\\faill\\documents\\github\\juliana-failla-programacion\\ejercicios-while\\console1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57D1EF11-A107-4BAB-BDAC-1F6EE9F9D4CB}|Console1\\Console1.csproj|solutionrelative:console1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\ConsoleApp5\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp5\\Program.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\ConsoleApp5\\Program.cs",
+              "RelativeToolTip": "ConsoleApp5\\Program.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAA9wB0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T22:47:03.003Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\ConsoleApp4\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp4\\Program.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\ConsoleApp4\\Program.cs",
+              "RelativeToolTip": "ConsoleApp4\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAIwCQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T22:47:03.357Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\ConsoleApp3\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp3\\Program.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\ConsoleApp3\\Program.cs",
+              "RelativeToolTip": "ConsoleApp3\\Program.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAA5wA4AAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T22:47:03.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\ConsoleApp2\\Program.cs",
+              "RelativeDocumentMoniker": "ConsoleApp2\\Program.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\ConsoleApp2\\Program.cs",
+              "RelativeToolTip": "ConsoleApp2\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T22:47:03.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\Console1\\Program.cs",
+              "RelativeDocumentMoniker": "Console1\\Program.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Juliana-Failla-Programacion\\Ejercicios-while\\Console1\\Program.cs",
+              "RelativeToolTip": "Console1\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-24T22:47:03.365Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -26,3 +26,4 @@ C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\Con
 C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\ConsoleApp3\obj\Debug\net6.0\ConsoleApp3.pdb
 C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\ConsoleApp3\obj\Debug\net6.0\ConsoleApp3.genruntimeconfig.cache
 C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\ConsoleApp3\obj\Debug\net6.0\ref\ConsoleApp3.dll
+C:\Users\faill\Documents\GitHub\Juliana-Failla-Programacion\Ejercicios-while\ConsoleApp3\obj\Debug\net6.0\ConsoleApp3.sourcelink.json
