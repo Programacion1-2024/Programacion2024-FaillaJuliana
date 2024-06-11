@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Diferencias de Cuadrados")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff56808fc289623bb82bceca5c04eeaf37d810df")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb0007b8b34607787d13c30cd7fabce8c29ae970")]
 [assembly: System.Reflection.AssemblyProductAttribute("Diferencias de Cuadrados")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Diferencias de Cuadrados")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

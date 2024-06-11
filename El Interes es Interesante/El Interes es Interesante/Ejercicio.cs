@@ -1,4 +1,7 @@
-﻿namespace El_Interes_es_Interesante
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Threading.Tasks;
+
+namespace El_Interes_es_Interesante
 {
 
     /*
@@ -40,21 +43,44 @@
 
     static class SavingsAccount
     {
+       /* 3,213% para un saldo negativo(el saldo se vuelve más negativo).
+            0,5% para un saldo positivo inferior a 1000dólares.
+            1,621% para saldo positivo mayor o igual a 1000 dólares y menor a 5000 dólares.
+            2,475% para saldo positivo mayor o igual a 5000 dólares
+
+        Tarea 1: Calcular la tasa de interés
+        Implemente el método(estático ) SavingsAccount.InterestRate() para calcular la tasa de interés en función del saldo especificado.
+                   SavingsAccount.InterestRate(balance: 200.75m)
+                    0.5f*/
         public static float InterestRate(decimal balance)
         {
-            throw new NotImplementedException("Please implement the (static) SavingsAccount.InterestRate() method");
-        }
+            if (balance < 0)
+            { return 3.213f ; }
+            if(balance > 0 && balance < 1000)
+            { return 0.5f; }
+            if(balance  )
 
+        }
+        /*Tarea 2: Calcular el interes
+               Implemente el método(estático ) SavingsAccount.Interest() para calcular el interés en función del saldo especificado.
+                   SavingsAccount.Interest(balance: 200.75m)
+                   // 1.00375m*/
         public static decimal Interest(decimal balance)
         {
             throw new NotImplementedException("Please implement the (static) SavingsAccount.Interest() method");
         }
-
+        /*Tarea 3: Calcular la actualización del balance anual
+               Implementar el método(estático ) SavingsAccount.AnnualBalanceUpdate() para calcular la actualización del saldo anual, teniendo en cuenta la tasa de interés.
+                   SavingsAccount.AnnualBalanceUpdate(balance: 200.75m)
+                   // 201.75375m*/
         public static decimal AnnualBalanceUpdate(decimal balance)
         {
             throw new NotImplementedException("Please implement the (static) SavingsAccount.AnnualBalanceUpdate() method");
         }
-
+        /*Tarea 4: Calcula los años antes de alcanzar el saldo deseado
+               Implemente el método(estático ) SavingsAccount.YearsBeforeDesiredBalance() para calcular la cantidad mínima de años necesarios para alcanzar el saldo deseado dado el interés compuesto anual.
+                   SavingsAccount.YearsBeforeDesiredBalance(balance: 200.75m, targetBalance: 214.88m)
+                   // 14*/
         public static int YearsBeforeDesiredBalance(decimal balance, decimal targetBalance)
         {
             throw new NotImplementedException("Please implement the (static) SavingsAccount.YearsBeforeDesiredBalance() method");

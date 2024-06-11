@@ -1,4 +1,6 @@
-﻿namespace Diferencias_de_Cuadrados
+﻿using System;
+
+namespace Diferencias_de_Cuadrados
 {
 
     /*
@@ -22,17 +24,27 @@
     {
         public static int CalculateSquareOfSum(int max)
         {
-            throw new NotImplementedException("You need to implement this function.");
+            IEnumerable<int> numeros = Enumerable.Range(1, max);
+            int suma=numeros.Sum();
+            suma *= suma;
+            return suma;
         }
 
         public static int CalculateSumOfSquares(int max)
         {
-            throw new NotImplementedException("You need to implement this function.");
+            IEnumerable<double> numeros = Enumerable.Range(1, max)
+                                                    .Select(num => Math.Pow(num, 2));
+            double sum = numeros.Sum();
+            return (int)sum;
         }
 
         public static int CalculateDifferenceOfSquares(int max)
         {
-            throw new NotImplementedException("You need to implement this function.");
+            int squareOfSum = CalculateSquareOfSum(max);
+            int sumOfSquares = CalculateSumOfSquares(max);
+            int difference = squareOfSum - sumOfSquares;
+            return difference;
+
         }
     }
 }
