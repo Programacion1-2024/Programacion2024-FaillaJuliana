@@ -1,4 +1,5 @@
 ﻿using El_juguete_de_Elon;
+using System;
 
 namespace El_juguete_de_Elon
 {
@@ -127,17 +128,19 @@ namespace El_juguete_de_Elon
 
         class RemoteControlCar
         {
-            public int bateria { get};
-            public int distancia ;
+            public int bateria { get; private set; } = 100;
+            public int distancia { get; private set; } = 0;
 
-            public static RemoteControlCar Comprar(int bateria, int distancia)
+
+
+            public static RemoteControlCar Comprar()
             {
-                RemoteControlCar car = new RemoteControlCar();
-                bateria = 100;
-                distancia = 0;
-
+                return new RemoteControlCar();
+                var car = new RemoteControlCar();
                 return car;
+
             }
+
 
             public string MostrarDistancia()
             {
@@ -162,14 +165,29 @@ namespace El_juguete_de_Elon
                 }
             }
         }
-       class Program
-       {
-            static void Main(String[] args)
+        class Program
+        {
+            public static void Main()
             {
+                var car = RemoteControlCar.Comprar();
 
+                // Mostrar estado inicial del coche
+                Console.WriteLine(car.MostrarDistancia());
+                Console.WriteLine(car.MostrarBateria());
 
-            }        
-       }
+                // Conducir el coche y mostrar resultados
+                car.Conducir();
+                Console.WriteLine(car.MostrarDistancia());
+                Console.WriteLine(car.MostrarBateria());
+
+                // Conducir el coche nuevamente y mostrar resultados
+                car.Conducir();
+                Console.WriteLine(car.MostrarDistancia());
+                Console.WriteLine(car.MostrarBateria());
+
+            }
+        }
     }
 }
+
 

@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("El juguete de Elon")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Need for Speed")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b06d9e3b820a51235d1435fd45ef43aac9f295e")]
-[assembly: System.Reflection.AssemblyProductAttribute("El juguete de Elon")]
-[assembly: System.Reflection.AssemblyTitleAttribute("El juguete de Elon")]
+[assembly: System.Reflection.AssemblyProductAttribute("Need for Speed")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Need for Speed")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.

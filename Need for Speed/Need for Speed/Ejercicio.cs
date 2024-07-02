@@ -65,11 +65,11 @@
 
     public class RemoteControlCar
     {
-        // TODO: defina el constructor para la clase 'RemoteControlCar'
+        public int bateria { get; set; } 
+        public int speed { get; set; } 
 
-        public bool BatteryDrained()
+        public bool BatteryDrained(int batteryDrain,int speed)
         {
-            throw new NotImplementedException("Please implement the RemoteControlCar.BatteryDrained() method");
         }
 
         public int DistanceDriven()
