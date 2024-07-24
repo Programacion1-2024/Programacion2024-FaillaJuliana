@@ -42,7 +42,7 @@ namespace EjemploRepositorios
 
                     services.AddTransient<Form1>();
 
-                    services.AddDbContext<LibreriaContext>(options => options.UseSqlServer("Data Source=localhost\\SQLJULI;Initial Catalog=LibreriaProgramacion1;Integrated Security=True;TrustServerCertificate=true"), ServiceLifetime.Transient);
+                    services.AddDbContext<LibreriaContext>(options => options.UseSqlServer("Data Source=LAPTOP-MFV6MCLC\\SQLEXPRESS;Initial Catalog=LibreriaProgramacion1;Integrated Security=True;TrustServerCertificate=true"), ServiceLifetime.Transient);
                 });
         }
     }

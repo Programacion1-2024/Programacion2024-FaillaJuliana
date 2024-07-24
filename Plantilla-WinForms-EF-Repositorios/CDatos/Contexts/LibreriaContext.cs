@@ -34,7 +34,7 @@ namespace CDatos.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {   
-                optionsBuilder.UseSqlServer("Data Source=LAPTOP-IVG8UIA0\\SQLJULI;Initial Catalog=LibreriaProgramacion1;Integrated Security=True;TrustServerCertificate=true");
+                optionsBuilder.UseSqlServer("Data Source=LAPTOP-MFV6MCLC\\SQLEXPRESS;Initial Catalog=LibreriaProgramacion1;Integrated Security=True;TrustServerCertificate=true");
             }
         }
 
