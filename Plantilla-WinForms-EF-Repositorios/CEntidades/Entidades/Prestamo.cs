@@ -14,7 +14,7 @@ namespace CEntidades.Entidades
         public DateTime? FechaDevolucion { get; set; }
         public Cliente Cliente { get; set; }
         public FormaDePago FormaDePago { get; set; }
-        public ICollection<CopiaLibro> CopiasLibro { get;}
+        public CopiaLibro CopiaLibro { get; set; }
         public Empleado Empleado { get; set; }
 
 

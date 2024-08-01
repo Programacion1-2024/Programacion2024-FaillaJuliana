@@ -70,7 +70,10 @@ namespace CDatos.Contexts
             {
                 entity.HasKey(e => e.IdCopiaLibro)
                     .HasName("PK_ID_COPIALIBRO");
-
+                entity.HasMany(e => e.Prestamos)
+                    .WithOne(e => e.CopiaLibro)
+                    .HasForeignKey("IdCopia")
+                    .IsRequired();
             }); 
             modelBuilder.Entity<Editorial>(entity =>
             {
@@ -136,8 +139,11 @@ namespace CDatos.Contexts
                    .WithOne(e => e.Libro)
                    .HasForeignKey("IdLibro")
                    .OnDelete(DeleteBehavior.NoAction)
-
                    .IsRequired();
+                entity.HasMany(e => e.Venta)
+                    .WithOne(e => e.Libro)
+                    .HasForeignKey("IdLibro")
+                    .IsRequired();
 
             }); 
             modelBuilder.Entity<Persona>(entity =>
@@ -161,19 +167,13 @@ namespace CDatos.Contexts
             {
                 entity.HasKey(e => e.IdPrestamo)
                     .HasName("PK_ID_PRESTAMO");
-                entity.HasMany(e => e.CopiasLibro)
-                    .WithOne(e => e.Prestamo)
-                    .HasForeignKey("IdPrestamo")
-                    .IsRequired();
+                
             });
             modelBuilder.Entity<Venta>(entity =>
             {
                 entity.HasKey(e => e.IdVenta)
                     .HasName("PK_ID_VENTA");
-                entity.HasMany(e => e.Libros)
-                    .WithOne(e => e.Venta)
-                    .HasForeignKey("IdVenta")
-                    .IsRequired();
+    
 
             });
             OnModelCreatingPartial(modelBuilder);

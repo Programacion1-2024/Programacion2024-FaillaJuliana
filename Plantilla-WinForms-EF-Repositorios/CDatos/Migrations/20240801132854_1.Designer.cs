@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CDatos.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
-    [Migration("20240703224440_2")]
-    partial class _2
+    [Migration("20240801132854_1")]
+    partial class _1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -131,8 +131,11 @@ namespace CDatos.Migrations
 
             modelBuilder.Entity("CEntidades.Entidades.Editorial", b =>
                 {
-                    b.Property<string>("IdEditorial")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdEditorial")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEditorial"));
 
                     b.Property<string>("Contacto")
                         .IsRequired()
@@ -185,8 +188,11 @@ namespace CDatos.Migrations
 
             modelBuilder.Entity("CEntidades.Entidades.FormaDePago", b =>
                 {
-                    b.Property<string>("IdFormaDePago")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdFormaDePago")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdFormaDePago"));
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
@@ -263,13 +269,11 @@ namespace CDatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IdEditorial")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdEditorial")
+                        .HasColumnType("int");
 
-                    b.Property<string>("IdVenta")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdVenta")
+                        .HasColumnType("int");
 
                     b.Property<int>("PrecioVenta")
                         .HasColumnType("int");
@@ -349,9 +353,8 @@ namespace CDatos.Migrations
                     b.Property<int>("IdEmpleado")
                         .HasColumnType("int");
 
-                    b.Property<string>("IdFormaDePago")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdFormaDePago")
+                        .HasColumnType("int");
 
                     b.HasKey("IdPrestamo")
                         .HasName("PK_ID_PRESTAMO");
@@ -367,8 +370,11 @@ namespace CDatos.Migrations
 
             modelBuilder.Entity("CEntidades.Entidades.Venta", b =>
                 {
-                    b.Property<string>("IdVenta")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdVenta")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdVenta"));
 
                     b.Property<DateTime>("FechaVenta")
                         .HasColumnType("datetime2");
@@ -379,9 +385,8 @@ namespace CDatos.Migrations
                     b.Property<int>("IdEmpleado")
                         .HasColumnType("int");
 
-                    b.Property<string>("IdFormaDePago")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("IdFormaDePago")
+                        .HasColumnType("int");
 
                     b.HasKey("IdVenta")
                         .HasName("PK_ID_VENTA");
@@ -433,7 +438,7 @@ namespace CDatos.Migrations
                     b.HasOne("CEntidades.Entidades.Libro", "Libro")
                         .WithMany("CopiasLibro")
                         .HasForeignKey("IdLibro")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("CEntidades.Entidades.Prestamo", "Prestamo")

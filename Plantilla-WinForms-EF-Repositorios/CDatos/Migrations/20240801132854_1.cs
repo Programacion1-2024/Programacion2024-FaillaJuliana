@@ -15,7 +15,8 @@ namespace CDatos.Migrations
                 name: "Editorial",
                 columns: table => new
                 {
-                    IdEditorial = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdEditorial = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Contacto = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -29,7 +30,8 @@ namespace CDatos.Migrations
                 name: "FormaDePago",
                 columns: table => new
                 {
-                    IdFormaDePago = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdFormaDePago = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -140,7 +142,8 @@ namespace CDatos.Migrations
                     FechaLimite = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FechaDevolucion = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IdCliente = table.Column<int>(type: "int", nullable: false),
-                    IdFormaDePago = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    IdFormaDePago = table.Column<int>(type: "int", nullable: false),
+                    IdEmpleado = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -150,6 +153,12 @@ namespace CDatos.Migrations
                         column: x => x.IdCliente,
                         principalTable: "Cliente",
                         principalColumn: "IdCliente",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Prestamo_Empleado_IdEmpleado",
+                        column: x => x.IdEmpleado,
+                        principalTable: "Empleado",
+                        principalColumn: "IdEmpleado",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Prestamo_FormaDePago_IdFormaDePago",
@@ -163,10 +172,12 @@ namespace CDatos.Migrations
                 name: "Venta",
                 columns: table => new
                 {
-                    IdVenta = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdVenta = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IdFormaDePago = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IdCliente = table.Column<int>(type: "int", nullable: false)
+                    IdFormaDePago = table.Column<int>(type: "int", nullable: false),
+                    IdCliente = table.Column<int>(type: "int", nullable: false),
+                    IdEmpleado = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -178,30 +189,16 @@ namespace CDatos.Migrations
                         principalColumn: "IdCliente",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
+                        name: "FK_Venta_Empleado_IdEmpleado",
+                        column: x => x.IdEmpleado,
+                        principalTable: "Empleado",
+                        principalColumn: "IdEmpleado",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Venta_FormaDePago_IdFormaDePago",
                         column: x => x.IdFormaDePago,
                         principalTable: "FormaDePago",
                         principalColumn: "IdFormaDePago",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CopiaLibro",
-                columns: table => new
-                {
-                    IdCopiaLibro = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    PrecioPrestamo = table.Column<long>(type: "bigint", nullable: false),
-                    IdPrestamo = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ID_COPIALIBRO", x => x.IdCopiaLibro);
-                    table.ForeignKey(
-                        name: "FK_CopiaLibro_Prestamo_IdPrestamo",
-                        column: x => x.IdPrestamo,
-                        principalTable: "Prestamo",
-                        principalColumn: "IdPrestamo",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -215,8 +212,8 @@ namespace CDatos.Migrations
                     Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaPublicacion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PrecioVenta = table.Column<int>(type: "int", nullable: false),
-                    IdEditorial = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IdVenta = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    IdEditorial = table.Column<int>(type: "int", nullable: false),
+                    IdVenta = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -258,6 +255,32 @@ namespace CDatos.Migrations
                         column: x => x.IdLibro,
                         principalTable: "Libro",
                         principalColumn: "IdLibro",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CopiaLibro",
+                columns: table => new
+                {
+                    IdCopiaLibro = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PrecioPrestamo = table.Column<long>(type: "bigint", nullable: false),
+                    IdPrestamo = table.Column<int>(type: "int", nullable: false),
+                    IdLibro = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ID_COPIALIBRO", x => x.IdCopiaLibro);
+                    table.ForeignKey(
+                        name: "FK_CopiaLibro_Libro_IdLibro",
+                        column: x => x.IdLibro,
+                        principalTable: "Libro",
+                        principalColumn: "IdLibro");
+                    table.ForeignKey(
+                        name: "FK_CopiaLibro_Prestamo_IdPrestamo",
+                        column: x => x.IdPrestamo,
+                        principalTable: "Prestamo",
+                        principalColumn: "IdPrestamo",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -312,6 +335,11 @@ namespace CDatos.Migrations
                 filter: "[IdPersona] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CopiaLibro_IdLibro",
+                table: "CopiaLibro",
+                column: "IdLibro");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CopiaLibro_IdPrestamo",
                 table: "CopiaLibro",
                 column: "IdPrestamo");
@@ -349,6 +377,11 @@ namespace CDatos.Migrations
                 column: "IdCliente");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Prestamo_IdEmpleado",
+                table: "Prestamo",
+                column: "IdEmpleado");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Prestamo_IdFormaDePago",
                 table: "Prestamo",
                 column: "IdFormaDePago");
@@ -357,6 +390,11 @@ namespace CDatos.Migrations
                 name: "IX_Venta_IdCliente",
                 table: "Venta",
                 column: "IdCliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Venta_IdEmpleado",
+                table: "Venta",
+                column: "IdEmpleado");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Venta_IdFormaDePago",
@@ -372,9 +410,6 @@ namespace CDatos.Migrations
 
             migrationBuilder.DropTable(
                 name: "CopiaLibro");
-
-            migrationBuilder.DropTable(
-                name: "Empleado");
 
             migrationBuilder.DropTable(
                 name: "GeneroLibro");
@@ -399,6 +434,9 @@ namespace CDatos.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cliente");
+
+            migrationBuilder.DropTable(
+                name: "Empleado");
 
             migrationBuilder.DropTable(
                 name: "FormaDePago");

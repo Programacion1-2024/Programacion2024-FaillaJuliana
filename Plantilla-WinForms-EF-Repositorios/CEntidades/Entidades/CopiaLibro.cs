@@ -10,7 +10,7 @@ namespace CEntidades.Entidades
     {
         public int IdCopiaLibro { get; set; }
         public long PrecioPrestamo { get; set; }
-        public Prestamo? Prestamo { get; set; }
+        public ICollection<Prestamo> Prestamos { get; set; }
         public Libro Libro { get; set; }
 
     }

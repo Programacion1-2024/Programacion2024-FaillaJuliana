@@ -110,9 +110,6 @@ namespace CDatos.Migrations
                     b.Property<int>("IdLibro")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdPrestamo")
-                        .HasColumnType("int");
-
                     b.Property<long>("PrecioPrestamo")
                         .HasColumnType("bigint");
 
@@ -120,8 +117,6 @@ namespace CDatos.Migrations
                         .HasName("PK_ID_COPIALIBRO");
 
                     b.HasIndex("IdLibro");
-
-                    b.HasIndex("IdPrestamo");
 
                     b.ToTable("CopiaLibro");
                 });
@@ -269,9 +264,6 @@ namespace CDatos.Migrations
                     b.Property<int>("IdEditorial")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdVenta")
-                        .HasColumnType("int");
-
                     b.Property<int>("PrecioVenta")
                         .HasColumnType("int");
 
@@ -279,8 +271,6 @@ namespace CDatos.Migrations
                         .HasName("PK_ID_LIBRO");
 
                     b.HasIndex("IdEditorial");
-
-                    b.HasIndex("IdVenta");
 
                     b.ToTable("Libro");
                 });
@@ -347,6 +337,9 @@ namespace CDatos.Migrations
                     b.Property<int>("IdCliente")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdCopia")
+                        .HasColumnType("int");
+
                     b.Property<int>("IdEmpleado")
                         .HasColumnType("int");
 
@@ -357,6 +350,8 @@ namespace CDatos.Migrations
                         .HasName("PK_ID_PRESTAMO");
 
                     b.HasIndex("IdCliente");
+
+                    b.HasIndex("IdCopia");
 
                     b.HasIndex("IdEmpleado");
 
@@ -385,6 +380,9 @@ namespace CDatos.Migrations
                     b.Property<int>("IdFormaDePago")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdLibro")
+                        .HasColumnType("int");
+
                     b.HasKey("IdVenta")
                         .HasName("PK_ID_VENTA");
 
@@ -393,6 +391,8 @@ namespace CDatos.Migrations
                     b.HasIndex("IdEmpleado");
 
                     b.HasIndex("IdFormaDePago");
+
+                    b.HasIndex("IdLibro");
 
                     b.ToTable("Venta");
                 });
@@ -435,18 +435,10 @@ namespace CDatos.Migrations
                     b.HasOne("CEntidades.Entidades.Libro", "Libro")
                         .WithMany("CopiasLibro")
                         .HasForeignKey("IdLibro")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CEntidades.Entidades.Prestamo", "Prestamo")
-                        .WithMany("CopiasLibro")
-                        .HasForeignKey("IdPrestamo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Libro");
-
-                    b.Navigation("Prestamo");
                 });
 
             modelBuilder.Entity("CEntidades.Entidades.Empleado", b =>
@@ -481,15 +473,7 @@ namespace CDatos.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CEntidades.Entidades.Venta", "Venta")
-                        .WithMany("Libros")
-                        .HasForeignKey("IdVenta")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Editorial");
-
-                    b.Navigation("Venta");
                 });
 
             modelBuilder.Entity("CEntidades.Entidades.Prestamo", b =>
@@ -497,6 +481,12 @@ namespace CDatos.Migrations
                     b.HasOne("CEntidades.Entidades.Cliente", "Cliente")
                         .WithMany("Prestamos")
                         .HasForeignKey("IdCliente")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CEntidades.Entidades.CopiaLibro", "CopiaLibro")
+                        .WithMany("Prestamos")
+                        .HasForeignKey("IdCopia")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -513,6 +503,8 @@ namespace CDatos.Migrations
                         .IsRequired();
 
                     b.Navigation("Cliente");
+
+                    b.Navigation("CopiaLibro");
 
                     b.Navigation("Empleado");
 
@@ -539,11 +531,19 @@ namespace CDatos.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CEntidades.Entidades.Libro", "Libro")
+                        .WithMany("Venta")
+                        .HasForeignKey("IdLibro")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Cliente");
 
                     b.Navigation("Empleado");
 
                     b.Navigation("FormaDePago");
+
+                    b.Navigation("Libro");
                 });
 
             modelBuilder.Entity("CEntidades.Entidades.Cliente", b =>
@@ -551,6 +551,11 @@ namespace CDatos.Migrations
                     b.Navigation("Prestamos");
 
                     b.Navigation("Ventas");
+                });
+
+            modelBuilder.Entity("CEntidades.Entidades.CopiaLibro", b =>
+                {
+                    b.Navigation("Prestamos");
                 });
 
             modelBuilder.Entity("CEntidades.Entidades.Editorial", b =>
@@ -575,6 +580,8 @@ namespace CDatos.Migrations
             modelBuilder.Entity("CEntidades.Entidades.Libro", b =>
                 {
                     b.Navigation("CopiasLibro");
+
+                    b.Navigation("Venta");
                 });
 
             modelBuilder.Entity("CEntidades.Entidades.Persona", b =>
@@ -584,16 +591,6 @@ namespace CDatos.Migrations
                     b.Navigation("Cliente");
 
                     b.Navigation("Empleado");
-                });
-
-            modelBuilder.Entity("CEntidades.Entidades.Prestamo", b =>
-                {
-                    b.Navigation("CopiasLibro");
-                });
-
-            modelBuilder.Entity("CEntidades.Entidades.Venta", b =>
-                {
-                    b.Navigation("Libros");
                 });
 #pragma warning restore 612, 618
         }

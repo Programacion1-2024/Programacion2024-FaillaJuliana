@@ -17,7 +17,7 @@ namespace CEntidades.Entidades
         public ICollection<Autor> Autores { get; set; }
         public ICollection<Genero> Generos { get; set; }
         public Editorial Editorial { get; set; }
-        public Venta? Venta { get; set; }
+        public ICollection<Venta> Venta { get; set; }
         public ICollection<CopiaLibro> CopiasLibro {  get; set; }
 
     }
