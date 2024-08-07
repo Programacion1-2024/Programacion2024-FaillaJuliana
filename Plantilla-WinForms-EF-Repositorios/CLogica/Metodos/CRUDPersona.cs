@@ -53,5 +53,10 @@ namespace CLogica.Metodos
             context.Persona.Remove(persona);
             context.SaveChanges();
         }
-    }
+
+        private bool IsValid(string nombre)
+        {
+            return nombre.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
+        }
+        
 }

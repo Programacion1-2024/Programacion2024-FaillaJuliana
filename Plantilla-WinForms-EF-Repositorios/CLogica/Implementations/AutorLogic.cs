@@ -13,9 +13,5 @@ namespace CLogica.Implementations
             _autorRepository = autorRepository;
         }
 
-        public async Task<List<Autor>> GetAll()
-        {
-            return await _autorRepository.GetAll();
-        }
-    }
+        
 }
