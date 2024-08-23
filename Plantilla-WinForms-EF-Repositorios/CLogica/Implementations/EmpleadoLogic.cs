@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CDatos.Repositories.Contracts
+namespace CLogica.Implementations
 {
-    public interface IRepositoryPersonacs
+    public class EmpleadoLogic
     {
     }
 }
