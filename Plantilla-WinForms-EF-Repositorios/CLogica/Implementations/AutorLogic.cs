@@ -3,66 +3,111 @@ using CDatos.Repositories.Contracts;
 using CEntidades.Entidades;
 using CLogica.Contracts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Linq.Expressions;
 
 namespace CLogica.Implementations
 {
     public class AutorLogic : IAutorLogic
     {
-        IAutorRepository _autorRepository;
-        public AutorLogic(IAutorRepository autorRepository)
+        private IAutorRepository _autorRepository;
+        private IPersonaLogic _personaLogic;
+        public AutorLogic(IAutorRepository autorRepository, IPersonaLogic personaLogic)
         {
             _autorRepository = autorRepository;
+            _personaLogic = personaLogic;
         }
-        public void AltaAutor(Autor autorAgregar)
+        public void AltaAutor(string nombre, string apellido, string nacionalidad, string telefono, string email, string biografia)
         {
-            Autor autorNuevo = new Autor();
-            if (autorAgregar == null)
+            try
             {
-                throw new ArgumentNullException("No se ha ingresado ningun autor. ");
-            }
-            if (autorAgregar.Persona == null)
-            {
-                throw new ArgumentNullException("El autor debe estar vinculado a una persona del sistema.");
-            }
-            if (autorAgregar.Biografia.Length < 4000)
-            {
-                throw new ArgumentNullException("La biografia es demasiado larga.");
-            }
-            autorNuevo.Biografia = autorAgregar.Biografia;
-            autorNuevo.Persona = autorAgregar.Persona;
+                Persona personaNueva = new Persona()
+                {
+                    Nombre = nombre,
+                    Apellido = apellido,
+                    Nacionalidad = nacionalidad,
+                    Telefono = telefono,
+                    Email = email,
+                    Documento = null 
+                };
 
-            _autorRepository.Create(autorNuevo);
-            _autorRepository.Save();
+                Persona persona = _personaLogic.AltaPersona(personaNueva);
+
+                if (persona == null || persona.IdPersona == 0)
+                {
+                    throw new Exception("Error al crear la persona.");
+                }
+
+                Autor autorNuevo = new Autor()
+                {
+                    Persona = persona, 
+                    Biografia = biografia
+                };
+
+                if (autorNuevo.Persona == null)
+                {
+                    throw new ArgumentNullException("El autor debe estar vinculado a una persona del sistema.");
+                }
+                if (string.IsNullOrEmpty(autorNuevo.Biografia) || autorNuevo.Biografia.Length > 4000)
+                {
+                    throw new ArgumentException("La biografía es demasiado larga o está vacía.");
+                }
+
+                _autorRepository.Create(autorNuevo);
+                _autorRepository.Save();
+            }
+            catch (Exception ex)
+            {
+                // Mostrar la excepción interna si existe
+                var innerExceptionMessage = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                throw new Exception("Error al crear el autor: " + innerExceptionMessage);
+            }
         }
 
-        public void ModificarAutor(string documento, Autor autorModificar)
+
+        public void ModificarAutor(string nombre, string apellido, string nacionalidad, string telefono, string email, string biografia)
         {
-            if (autorModificar == null)
+            try
             {
-                throw new ArgumentNullException("No se ha ingresado ningun autor. ");
-            }
-            if (autorModificar.Persona == null)
-            {
-                throw new ArgumentNullException("El autor debe estar vinculado a una persona del sistema.");
-            }
-            if (autorModificar.Biografia.Length < 4000)
-            {
-                throw new ArgumentNullException("La biografia es demasiado larga.");
-            }
+                Persona personaModificar = new Persona()
+                {
+                    Nombre = nombre,
+                    Apellido = apellido,
+                    Nacionalidad = nacionalidad,
+                    Telefono = telefono,
+                    Email = email,
+                    Documento = null
+                };
 
-            if (string.IsNullOrEmpty(documento) || !PersonaLogic.IsValidDocumento(documento))
-                throw new ArgumentNullException("El domuento ingresado es invalido");
-            Autor? autor = _autorRepository.FindByCondition(p => p.Persona.Documento == documento).FirstOrDefault();
+                Persona persona = _personaLogic.AltaPersona(personaModificar);
 
-            if (autor == null)
-            {
-                throw new ArgumentException("La persona con este documento no fue encontrada");
+                Autor autorModificado = new Autor()
+                {
+                    Persona = persona,
+                    Biografia = biografia
+                };
+
+                if (autorModificado == null)
+                {
+                    throw new ArgumentNullException("No se ha ingresado ningun autor.");
+                }
+                if (autorModificado.Persona == null)
+                {
+                    throw new ArgumentNullException("El autor debe estar vinculado a una persona del sistema.");
+                }
+                if (string.IsNullOrEmpty(autorModificado.Biografia) || autorModificado.Biografia.Length > 4000)
+                {
+                    throw new ArgumentNullException("La biografia es demasiado larga o está vacía.");
+                }
+                _autorRepository.Update(autorModificado);
+                _autorRepository.Save();
             }
-
-            _autorRepository.Update(autor);
-            _autorRepository.Save();
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
         public void BajaAutor(string documento)
         {
             if (string.IsNullOrEmpty(documento) || !PersonaLogic.IsValidDocumento(documento))
@@ -80,33 +125,31 @@ namespace CLogica.Implementations
             _autorRepository.Delete(autorEliminar);
             _autorRepository.Save();
         }
-
-        public Autor ConsultaAutor(string documento)
+        public List<Autor> ConsultaTodosLosAutores()
         {
-            if (string.IsNullOrEmpty(documento) || !PersonaLogic.IsValidDocumento(documento))
-                throw new ArgumentNullException("El domuento ingresado es invalido");
-            Autor? autor = _autorRepository.FindByCondition(p => p.Persona.Documento == documento).FirstOrDefault();
-
-            if (autor == null)
-            {
-                throw new ArgumentException("La persona con este documento no fue encontrada");
-            }
-
+            return _autorRepository.FindAll().ToList();
+        }
+        public List<Autor> ObtenerTodosLosAutoresParaListado()
+        {
+            return _autorRepository.ObtenerAutores()
+                .Select(a => new Autor
+                {
+                    Persona = new Persona
+                    {
+                        Nombre = a.Persona.Nombre,
+                        Apellido = a.Persona.Apellido,
+                        Nacionalidad = a.Persona.Nacionalidad,
+                        Email = a.Persona.Email,
+                        Telefono = a.Persona.Telefono,
+                    },
+                    Biografia = a.Biografia
+                }).ToList();
+        }
+        public Autor ObtenerAutorPorNombreYApellido(string nombre, string apellido)
+        {
+            Autor? autor = _autorRepository.GetByNombreYApellido(nombre, apellido); // Llamada sincrónica
             return autor;
         }
-
-        public async Task<List<Autor>> ConsultaTodosLosAutoresAsync()
-        {
-            List<Autor> autores = await _autorRepository.GetAll();
-
-            if (!autores.Any())
-            {
-                throw new ArgumentException("No se encontraron autores.");
-            }
-
-            return autores;
-        }
-
 
     }
 }

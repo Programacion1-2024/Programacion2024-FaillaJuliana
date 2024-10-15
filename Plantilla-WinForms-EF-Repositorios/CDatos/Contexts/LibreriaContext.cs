@@ -16,6 +16,7 @@ namespace CDatos.Contexts
         }
 
         public virtual DbSet<Autor> Autor { get; set; }
+        public virtual DbSet<Imagen> Imagen { get; set; }
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<CopiaLibro> CopiaLibro { get; set; }
         public virtual DbSet<Editorial> Editorial { get; set; }
@@ -65,6 +66,11 @@ namespace CDatos.Contexts
                      .WithOne(e => e.Cliente)
                      .HasForeignKey("IdCliente")
                      .IsRequired();
+            });
+            modelBuilder.Entity<Imagen>(entity =>
+            {
+                entity.HasKey(e => e.IdImagen)
+                    .HasName("PK_ID_IMAGEN");
             });
             modelBuilder.Entity<CopiaLibro>(entity =>
             {

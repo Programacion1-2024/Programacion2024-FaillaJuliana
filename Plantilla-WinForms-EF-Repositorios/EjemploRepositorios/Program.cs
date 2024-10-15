@@ -8,6 +8,8 @@ using System;
 using CDatos.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
+using CPresentacion;
+using CDatos.Repositories.CDatos.Repositories;
 
 namespace EjemploRepositorios
 {
@@ -28,7 +30,7 @@ namespace EjemploRepositorios
             var host = CreateHostBuilder().Build();
             _serviceProvider = host.Services;
 
-            Application.Run(_serviceProvider.GetRequiredService<Form1>());
+            Application.Run(_serviceProvider.GetRequiredService<Inicio>());
         }
 
         static IHostBuilder CreateHostBuilder()
@@ -37,10 +39,20 @@ namespace EjemploRepositorios
                 .ConfigureServices((context, services) => {
 
                     services.AddTransient<IAutorLogic, AutorLogic>();
+                    services.AddTransient<IPersonaLogic, PersonaLogic>();
+                    services.AddTransient<IImagenLogic, ImagenLogic>();
+
 
                     services.AddTransient<IAutorRepository, AutorRepository>();
+                    services.AddTransient<IPersonaRepository, PersonaRepository>();
+                    services.AddTransient<IIImagenRepository, ImagenRepository>();
 
-                    services.AddTransient<Form1>();
+
+
+                    services.AddTransient<ABMAutor>();
+                    services.AddTransient<Inicio>();
+
+
 
                     services.AddDbContext<LibreriaContext>(options => options.UseSqlServer("Data Source=LAPTOP-MFV6MCLC\\SQLEXPRESS;Initial Catalog=LibreriaProgramacion1;Integrated Security=True;TrustServerCertificate=true"), ServiceLifetime.Transient);
                 });

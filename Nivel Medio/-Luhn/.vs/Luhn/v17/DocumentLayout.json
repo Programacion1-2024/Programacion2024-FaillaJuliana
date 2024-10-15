@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Nivel Medio\\Luhn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{71A106FF-BC8C-4DB3-84B3-E0C32B77339E}|Luhn\\Luhn.csproj|c:\\users\\faill\\documents\\github\\programacion2024-faillajuliana\\nivel medio\\luhn\\luhn\\ejercicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71A106FF-BC8C-4DB3-84B3-E0C32B77339E}|Luhn\\Luhn.csproj|solutionrelative:luhn\\ejercicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71A106FF-BC8C-4DB3-84B3-E0C32B77339E}|Luhn\\Luhn.csproj|c:\\users\\faill\\documents\\github\\programacion2024-faillajuliana\\nivel medio\\luhn\\luhn\\luhntests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71A106FF-BC8C-4DB3-84B3-E0C32B77339E}|Luhn\\Luhn.csproj|solutionrelative:luhn\\luhntests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LuhnTests.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Nivel Medio\\Luhn\\Luhn\\LuhnTests.cs",
+              "RelativeDocumentMoniker": "Luhn\\LuhnTests.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Nivel Medio\\Luhn\\Luhn\\LuhnTests.cs",
+              "RelativeToolTip": "Luhn\\LuhnTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T16:58:26.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ejercicio.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Nivel Medio\\Luhn\\Luhn\\Ejercicio.cs",
+              "RelativeDocumentMoniker": "Luhn\\Ejercicio.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Nivel Medio\\Luhn\\Luhn\\Ejercicio.cs",
+              "RelativeToolTip": "Luhn\\Ejercicio.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAEAAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T16:58:24.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

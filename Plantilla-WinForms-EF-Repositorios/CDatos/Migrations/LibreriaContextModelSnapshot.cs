@@ -242,6 +242,39 @@ namespace CDatos.Migrations
                     b.ToTable("GeneroLibro");
                 });
 
+            modelBuilder.Entity("CEntidades.Entidades.Imagen", b =>
+                {
+                    b.Property<int>("IdImagen")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdImagen"));
+
+                    b.Property<string>("FormularioOrigen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Tamanio")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("TipoMime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("URL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdImagen")
+                        .HasName("PK_ID_IMAGEN");
+
+                    b.ToTable("Imagen");
+                });
+
             modelBuilder.Entity("CEntidades.Entidades.Libro", b =>
                 {
                     b.Property<int>("IdLibro")
@@ -264,8 +297,12 @@ namespace CDatos.Migrations
                     b.Property<int>("IdEditorial")
                         .HasColumnType("int");
 
-                    b.Property<int>("PrecioVenta")
-                        .HasColumnType("int");
+                    b.Property<float>("PrecioVenta")
+                        .HasColumnType("real");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdLibro")
                         .HasName("PK_ID_LIBRO");
@@ -287,15 +324,14 @@ namespace CDatos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CorreoElectronico")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Direccion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Documento")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nacionalidad")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -308,7 +344,6 @@ namespace CDatos.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoDocumento")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdPersona")

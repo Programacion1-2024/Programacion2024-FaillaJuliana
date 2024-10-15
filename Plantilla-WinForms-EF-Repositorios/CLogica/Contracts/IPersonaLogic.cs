@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CLogica.Contracts
 {
-    public interface IClienteLogic
+    public interface IPersonaLogic
     {
-        void AltaPersona(Persona persona);
+        Persona AltaPersona(Persona persona);
         void ActualizacionPersona(string documento, Persona personaActualizar);
         void EliminacionPersona(string documento);
     }

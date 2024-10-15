@@ -7,6 +7,10 @@ namespace CDatos.Repositories.Contracts
     public interface IAutorRepository : IRepository<Autor>
     {
         Task<List<Autor>> GetAll();
+        void CrearAutor(Autor autor);
+        List<Autor> ObtenerAutores();
+        Autor GetByNombreYApellido(string nombre, string apellido);
+
 
     }
 }

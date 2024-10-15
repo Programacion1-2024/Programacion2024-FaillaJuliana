@@ -4,11 +4,13 @@ namespace CLogica.Contracts
 {
     public interface IAutorLogic
     {
-        void AltaAutor(Autor autor);
-        void ModificarAutor(string documento, Autor autorModificar);
+        void AltaAutor(string nombre, string apellido, string nacionalidad, string telefono, string email, string biografia);
+        void ModificarAutor(string nombre, string apellido, string nacionalidad, string telefono, string email, string biografia);
         void BajaAutor(string documento);
-        Autor ConsultaAutor(string documento);     
-        Task<List<Autor>> ConsultaTodosLosAutoresAsync(); 
+        List<Autor> ConsultaTodosLosAutores();
+        List<Autor> ObtenerTodosLosAutoresParaListado();
+        Autor ObtenerAutorPorNombreYApellido(string nombre, string apellido);
+
     }
 
 }

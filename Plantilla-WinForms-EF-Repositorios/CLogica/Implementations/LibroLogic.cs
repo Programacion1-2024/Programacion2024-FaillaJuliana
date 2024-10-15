@@ -18,25 +18,26 @@ namespace CLogica.Implementations
 
         public void AltaLibro (Libro libro)
         {
-            Libro libroNuevo = new Libro();
 
             List<string> camposErroneos = new List<string>();
 
-            if (string.IsNullOrEmpty(libroNuevo.Titulo) || !PersonaLogic.IsValidName(libroNuevo.Titulo))
+            if (string.IsNullOrEmpty(libro.Titulo) || !PersonaLogic.IsValidName(libro.Titulo))
                 camposErroneos.Add("Titulo");
-            if(string.IsNullOrEmpty(libroNuevo.Descripcion) || !PersonaLogic.IsValidName(libroNuevo.Descripcion))
+            if(string.IsNullOrEmpty(libro.Descripcion) || !PersonaLogic.IsValidName(libro.Descripcion))
                 camposErroneos.Add("Descripcion");
-            if (libroNuevo.FechaPublicacion == DateTime.MinValue || !IsValidFecha(libroNuevo.FechaPublicacion))
+            if (libro.FechaPublicacion == DateTime.MinValue || !IsValidFecha(libro.FechaPublicacion))
                 camposErroneos.Add("FechaPublicacion");
-            if (string.IsNullOrEmpty(libroNuevo.ISBN) || !IsValidIsbn(libroNuevo.ISBN) || _libroRepository.FindByCondition(p => p.ISBN == libroNuevo.ISBN).Count() != 0)
+            if (string.IsNullOrEmpty(libro.ISBN) || !IsValidIsbn(libro.ISBN) || _libroRepository.FindByCondition(p => p.ISBN == libro.ISBN).Count() != 0)
                 camposErroneos.Add("ISBN");
-            if (!IsValidPrecio(libroNuevo.PrecioVenta))
+            if (!IsValidPrecio(libro.PrecioVenta))
                 camposErroneos.Add("Precio Venta");
 
             if (camposErroneos.Count > 0)
             {
                 throw new ArgumentException("Los siguientes campos son invalidos: ", String.Join(",", camposErroneos));
             }
+            Libro libroNuevo = new Libro();
+
 
             libroNuevo.ISBN = libro.ISBN;
             libroNuevo.Titulo = libro.Titulo;
@@ -110,12 +111,7 @@ namespace CLogica.Implementations
             return libroBuscado;
         }
 
-        
-
-
-
-
-        private bool IsValidFecha(DateTime fecha)
+        public static bool IsValidFecha(DateTime fecha)
         {
             if (fecha > DateTime.Now)
             {

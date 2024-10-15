@@ -9,6 +9,6 @@ namespace CDatos.Repositories.Contracts
 {
     public interface IEditorialRepository : IRepository<Editorial>
     {
-        Task<List<Libro>> GetAll();
+        Task<List<Editorial>> GetAll();
     }
 }

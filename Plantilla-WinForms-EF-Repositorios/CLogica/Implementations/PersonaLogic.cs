@@ -6,7 +6,7 @@ using CLogica.Contracts;
 
 namespace CLogica.Implementations
 {
-    public class PersonaLogic : IClienteLogic
+    public class PersonaLogic : IPersonaLogic
     {
         IPersonaRepository _personaRepository;
 
@@ -15,15 +15,16 @@ namespace CLogica.Implementations
             _personaRepository = personaRepository;
         }
 
-        public void AltaPersona(Persona personaNueva)
+        public Persona AltaPersona(Persona personaNueva)
         {
             List<string> camposErroneos = new List<string>();
 
+            // Validaciones
             if (string.IsNullOrEmpty(personaNueva.Nombre) || !IsValidName(personaNueva.Nombre))
                 camposErroneos.Add("Nombre");
             if (string.IsNullOrEmpty(personaNueva.Apellido) || !IsValidName(personaNueva.Apellido))
                 camposErroneos.Add("Apellido");
-            if (string.IsNullOrEmpty(personaNueva.Documento) || !IsValidDocumento(personaNueva.Documento) || _personaRepository.FindByCondition(p =>p.Documento == personaNueva.Documento).Count()!=0)
+            if (!string.IsNullOrEmpty(personaNueva.Documento) && !IsValidDocumento(personaNueva.Documento))
                 camposErroneos.Add("Documento");
             if (string.IsNullOrEmpty(personaNueva.Telefono) || !IsValidTelefono(personaNueva.Telefono))
                 camposErroneos.Add("Telefono");
@@ -32,33 +33,27 @@ namespace CLogica.Implementations
 
             if (camposErroneos.Count > 0)
             {
-                throw new ArgumentException("Los siguientes campos son invalidos: ", String.Join(",", camposErroneos));
+                throw new ArgumentException($"Los siguientes campos son inválidos: {String.Join(", ", camposErroneos)}");
             }
 
-            Persona persona = new Persona();
-            persona.Nombre = personaNueva.Nombre;
-            persona.Apellido = personaNueva.Apellido;
-            persona.Documento = personaNueva.Documento;
-            persona.Nacionalidad = personaNueva.Nacionalidad;
-            persona.TipoDocumento = personaNueva.TipoDocumento;
-            persona.Telefono = personaNueva.Telefono;
-            persona.Email = personaNueva.Email;
-            if (personaNueva.Autor != null)
+            Persona persona = new Persona
             {
-                persona.Autor = personaNueva.Autor;
-            }
-            if (personaNueva.Empleado != null)
-            {
-                persona.Empleado = personaNueva.Empleado;
-            }
-            if (personaNueva.Cliente != null)
-            {
-                persona.Cliente = personaNueva.Cliente;
-            }
+                Nombre = personaNueva.Nombre,
+                Apellido = personaNueva.Apellido,
+                Documento = personaNueva.Documento,
+                Nacionalidad = personaNueva.Nacionalidad,
+                TipoDocumento = personaNueva.TipoDocumento,
+                Telefono = personaNueva.Telefono,
+                Email = personaNueva.Email
+            };
+
 
             _personaRepository.Create(persona);
             _personaRepository.Save();
+
+            return persona;
         }
+
 
         public void ActualizacionPersona(string documento, Persona personaActualizar)
         {
@@ -68,7 +63,7 @@ namespace CLogica.Implementations
                 camposErroneos.Add("Nombre");
             if (string.IsNullOrEmpty(personaActualizar.Apellido) || !IsValidName(personaActualizar.Apellido))
                 camposErroneos.Add("Apellido");
-            if (string.IsNullOrEmpty(personaActualizar.Documento) || !IsValidDocumento(personaActualizar.Documento))
+            if (!string.IsNullOrEmpty(personaActualizar.Documento) && !IsValidDocumento(personaActualizar.Documento))
                 camposErroneos.Add("Documento");
             if (string.IsNullOrEmpty(personaActualizar.Telefono) || !IsValidTelefono(personaActualizar.Telefono))
                 camposErroneos.Add("Telefono");
@@ -118,7 +113,7 @@ namespace CLogica.Implementations
 # region Validaciones
         public static bool ContainsInvalidCharacter(string text)
         {
-            char[] caracteres = { '!', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '<', '>', '.', ',', '`', '~' };
+            char[] caracteres = { '!', '#', '$', '%', '^', '&', '*', '(', ')', '-', '=', '<', '>', ',', '`', '~' };
             return caracteres.Any(c => text.Contains(c));
         }
 
@@ -127,17 +122,22 @@ namespace CLogica.Implementations
             return nombre.Length < 15 && !ContainsInvalidCharacter(nombre);
 
         }
-        public static bool IsValidDocumento(string documento)
+        public static bool IsValidDocumento(string? documento)
         {
-            return documento.Length == 8 && documento.All(c => Char.IsNumber(c));
+            if (string.IsNullOrEmpty(documento))
+            {
+                return true; // Acepta nulos o vacíos como válidos
+            }
 
+            return documento.Length == 8 && documento.All(c => Char.IsNumber(c));
         }
-        private bool IsValidTelefono(string telefono)
+
+        public static bool IsValidTelefono(string telefono)
         {
             return telefono.Length == 10 && telefono.All(c => Char.IsNumber(c));
 
         }
-        private bool IsValidEmail(string email)
+        public static bool IsValidEmail(string email)
         {
             return email.Contains('@') && !ContainsInvalidCharacter(email);
 

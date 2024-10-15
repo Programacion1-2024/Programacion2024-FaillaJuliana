@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Matching Brackets\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B790A19-25AD-45FF-B9BE-7DFEA16BC63E}|Matching Brackets\\Matching Brackets.csproj|c:\\users\\faill\\documents\\github\\programacion2024-faillajuliana\\matching brackets\\matching brackets\\ejercicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B790A19-25AD-45FF-B9BE-7DFEA16BC63E}|Matching Brackets\\Matching Brackets.csproj|solutionrelative:matching brackets\\ejercicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B790A19-25AD-45FF-B9BE-7DFEA16BC63E}|Matching Brackets\\Matching Brackets.csproj|c:\\users\\faill\\documents\\github\\programacion2024-faillajuliana\\matching brackets\\matching brackets\\matchingbracketstests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B790A19-25AD-45FF-B9BE-7DFEA16BC63E}|Matching Brackets\\Matching Brackets.csproj|solutionrelative:matching brackets\\matchingbracketstests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Ejercicio.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Matching Brackets\\Matching Brackets\\Ejercicio.cs",
+              "RelativeDocumentMoniker": "Matching Brackets\\Ejercicio.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Matching Brackets\\Matching Brackets\\Ejercicio.cs",
+              "RelativeToolTip": "Matching Brackets\\Ejercicio.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T23:32:08.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MatchingBracketsTests.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Matching Brackets\\Matching Brackets\\MatchingBracketsTests.cs",
+              "RelativeDocumentMoniker": "Matching Brackets\\MatchingBracketsTests.cs",
+              "ToolTip": "C:\\Users\\faill\\Documents\\GitHub\\Programacion2024-FaillaJuliana\\Matching Brackets\\Matching Brackets\\MatchingBracketsTests.cs",
+              "RelativeToolTip": "Matching Brackets\\MatchingBracketsTests.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAADwvywAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T23:32:03.979Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

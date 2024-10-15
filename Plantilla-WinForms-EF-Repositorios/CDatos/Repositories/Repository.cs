@@ -13,7 +13,10 @@ namespace CDatos.Repositories
         {
             this._context = context;
         }
-
+        public IEnumerable<T> FindAll()
+        {
+            return this._context.Set<T>().ToList();
+        }
         public async Task<IEnumerable<T>> FindAllAsync()
         {
             return await this._context.Set<T>().ToListAsync();
