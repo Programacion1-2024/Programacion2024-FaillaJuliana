@@ -14,14 +14,12 @@ namespace CPresentacion
 {
     public partial class Inicio : Form
     {
-        private IImagenLogic _imagenLogic;
         private IPersonaLogic _personaLogic;
         private IAutorLogic _autorLogic;
 
 
-        public Inicio(IImagenLogic imagenLogic, IPersonaLogic personaLogic, IAutorLogic autorLogic )
+        public Inicio(IPersonaLogic personaLogic, IAutorLogic autorLogic )
         {
-            _imagenLogic = imagenLogic;
             _personaLogic = personaLogic;
             _autorLogic = autorLogic;
             InitializeComponent();
