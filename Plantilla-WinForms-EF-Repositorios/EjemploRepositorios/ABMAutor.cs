@@ -26,16 +26,32 @@ namespace CPresentacion
 
         private void ABMAutor_Load(object sender, EventArgs e)
         {
-            CargarListaAutores();
-            CargarComboBoxAutores();
+            try
+            {
+                CargarListaAutores();
+                CargarComboBoxAutores();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el formulario: " + ex.Message);
+            }
 
         }
         private void CargarListaAutores()
         {
             try
             {
-                var autores = _autorLogic.ObtenerTodosLosAutoresParaListado();
-                dgv_Listado.DataSource = autores;
+                var autores = _autorLogic.ConsultaTodosLosAutores();
+
+                var autoresConDetalles = autores.Select(a => new
+                {
+                    a.IdAutor,            
+                    a.Persona.Nombre,
+                    a.Persona.Apellido,
+                    a.Biografia          
+                }).ToList();
+
+                dgv_Listado.DataSource = autoresConDetalles;
             }
             catch (Exception ex)
             {
@@ -47,9 +63,9 @@ namespace CPresentacion
         {
             try
             {
-                var autores = _autorLogic.ObtenerTodosLosAutoresParaListado();
+                var autores = _autorLogic.ConsultaTodosLosAutores();
                 cb_BuscarAutor.Items.Clear();
-                cb_BuscarAutor.Items.AddRange(autores.Select(a => $"{a.Persona.Nombre} {a.Persona.Apellido}").ToArray());
+                cb_BuscarAutor.Items.AddRange(autores.Select(a => $"{a.IdAutor}").ToArray());
             }
             catch (Exception ex)
             {
@@ -57,27 +73,18 @@ namespace CPresentacion
             }
         }
 
+
         private void cb_BuscarAutor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string nombreCompletoSeleccionado = cb_BuscarAutor.Text;
+            string idAutor = cb_BuscarAutor.Text;
 
-            if (string.IsNullOrEmpty(nombreCompletoSeleccionado))
+            if (string.IsNullOrEmpty(idAutor))
             {
                 MessageBox.Show("Por favor, seleccione un autor.");
                 return;
             }
 
-            var partes = nombreCompletoSeleccionado.Split(' ');
-            if (partes.Length < 2) // Asegúrate de que hay al menos nombre y apellido
-            {
-                MessageBox.Show("Por favor, seleccione un autor válido.");
-                return;
-            }
-
-            var nombre = partes[0];
-            var apellido = partes[1];
-
-            Autor autorBuscado = _autorLogic.ObtenerAutorPorNombreYApellido(nombre, apellido);
+            Autor autorBuscado = _autorLogic.ObtenerPorId(idAutor);
 
             if (autorBuscado != null)
             {
@@ -93,6 +100,7 @@ namespace CPresentacion
                 MessageBox.Show("Autor no encontrado.");
             }
         }
+
         private void btn_guardarAlta_Click(object sender, EventArgs e)
         {
             string nombre = tb_nombre.Text.Trim();
@@ -113,7 +121,7 @@ namespace CPresentacion
             {
                 _autorLogic.AltaAutor(nombre, apellido, nacionalidad, telefono, email, biografia);
                 MessageBox.Show("Autor guardado correctamente.");
-                CargarListaAutores(); // Opcional: vuelve a cargar la lista de autores
+                CargarListaAutores(); 
             }
             catch (Exception ex)
             {
@@ -121,7 +129,33 @@ namespace CPresentacion
             }
         }
 
+        private void btn_guardarMod_Click(object sender, EventArgs e)
+        {
+            string nombre = tb_nombreMod.Text.Trim();  
+            string apellido = tb_apellidoMod.Text.Trim();  
+            string nacionalidad = tb_nacionalidadMod.Text.Trim();
+            string telefono = tb_telefonoMod.Text.Trim();
+            string email = tb_emailMod.Text.Trim();
+            string biografia = tb_biografiaMod.Text.Trim();
+            string idAutor = cb_BuscarAutor.Text.Trim();
 
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(apellido) || string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.");
+                return;
+            }
+
+            try
+            {
+                _autorLogic.ModificarAutor(idAutor, nombre, apellido, nacionalidad, telefono, email, biografia);
+                MessageBox.Show("Autor modificado correctamente.");
+                CargarListaAutores();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException?.Message ?? ex.Message);
+            }
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CDatos.Contexts;
 using CDatos.Repositories.Contracts;
+using CEntidades.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
@@ -17,6 +18,11 @@ namespace CDatos.Repositories
         {
             return this._context.Set<T>().ToList();
         }
+        public IQueryable<Autor> FindAllIQueryable()
+        {
+            return _context.Autor.AsQueryable(); 
+        }
+
         public async Task<IEnumerable<T>> FindAllAsync()
         {
             return await this._context.Set<T>().ToListAsync();

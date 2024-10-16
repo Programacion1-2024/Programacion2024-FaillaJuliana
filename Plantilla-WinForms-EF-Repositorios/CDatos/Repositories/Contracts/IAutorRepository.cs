@@ -10,6 +10,7 @@ namespace CDatos.Repositories.Contracts
         void CrearAutor(Autor autor);
         List<Autor> ObtenerAutores();
         Autor GetByNombreYApellido(string nombre, string apellido);
+        Autor ObtenerPorId(string idAutor);
 
 
     }

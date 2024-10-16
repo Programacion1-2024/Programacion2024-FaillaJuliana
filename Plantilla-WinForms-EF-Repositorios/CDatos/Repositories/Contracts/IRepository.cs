@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using CEntidades.Entidades;
+using System.Linq.Expressions;
 
 namespace CDatos.Repositories.Contracts
 {
@@ -9,6 +10,7 @@ namespace CDatos.Repositories.Contracts
         IEnumerable<T> FindByCondition(Expression<Func<T, bool>> expression);
         Task<T> GetById(int id);
         IEnumerable<T> FindAll();
+        IQueryable<Autor> FindAllIQueryable();
 
         void Create(T entity);
         void Update(T entity);

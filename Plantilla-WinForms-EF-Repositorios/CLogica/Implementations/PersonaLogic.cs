@@ -55,7 +55,7 @@ namespace CLogica.Implementations
         }
 
 
-        public void ActualizacionPersona(string documento, Persona personaActualizar)
+        public void ActualizacionPersona(Persona personaActualizar)
         {
             List<string> camposErroneos = new List<string>();
 
@@ -72,27 +72,25 @@ namespace CLogica.Implementations
 
             if (camposErroneos.Count > 0)
             {
-                throw new ArgumentException("Los siguientes campos son invalidos: ", String.Join(",", camposErroneos));
+                throw new ArgumentException("Los siguientes campos son inválidos: " + string.Join(", ", camposErroneos));
             }
 
-            if (string.IsNullOrEmpty(documento) || !IsValidDocumento(documento))
-                throw new ArgumentNullException("El domuento ingresado es invalido");
-            Persona? persona = _personaRepository.FindByCondition(p => p.Documento == documento).FirstOrDefault();
-           
+            Persona? persona = _personaRepository.FindByCondition(p => p.Documento == personaActualizar.Documento).FirstOrDefault();
+
             if (persona == null)
             {
-                throw new ArgumentException("La persona con este docuemtno no fue encontrada");
+                throw new ArgumentException("La persona con este documento no fue encontrada");
             }
 
             persona.Nombre = personaActualizar.Nombre;
             persona.Apellido = personaActualizar.Apellido;
-            persona.Documento = personaActualizar.Documento;
             persona.Telefono = personaActualizar.Telefono;
             persona.Email = personaActualizar.Email;
 
             _personaRepository.Update(persona);
-            _personaRepository.Save();       
+            _personaRepository.Save();
         }
+
 
         public void EliminacionPersona(string documento)
         {

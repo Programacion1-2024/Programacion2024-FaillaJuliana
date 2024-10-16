@@ -40,90 +40,106 @@
             empleadoToolStripMenuItem = new ToolStripMenuItem();
             pictureBoxInicio = new PictureBox();
             colorDialog1 = new ColorDialog();
+            label1 = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxInicio).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
             // 
+            menuStrip1.Anchor = AnchorStyles.None;
             menuStrip1.AutoSize = false;
+            menuStrip1.Dock = DockStyle.None;
             menuStrip1.ImageScalingSize = new Size(20, 20);
             menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, autoresToolStripMenuItem, librosToolStripMenuItem, editorialToolStripMenuItem, ventaToolStripMenuItem, préstamoToolStripMenuItem, copiaLibroToolStripMenuItem, clienteToolStripMenuItem, empleadoToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Location = new Point(0, -3);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 59);
+            menuStrip1.Size = new Size(810, 52);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "Menu";
             // 
             // inicioToolStripMenuItem
             // 
             inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
-            inicioToolStripMenuItem.Size = new Size(59, 55);
+            inicioToolStripMenuItem.Size = new Size(59, 48);
             inicioToolStripMenuItem.Text = "Inicio";
             // 
             // autoresToolStripMenuItem
             // 
             autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
-            autoresToolStripMenuItem.Size = new Size(60, 55);
+            autoresToolStripMenuItem.Size = new Size(60, 48);
             autoresToolStripMenuItem.Text = "Autor";
             autoresToolStripMenuItem.Click += autoresToolStripMenuItem_Click;
             // 
             // librosToolStripMenuItem
             // 
             librosToolStripMenuItem.Name = "librosToolStripMenuItem";
-            librosToolStripMenuItem.Size = new Size(57, 55);
+            librosToolStripMenuItem.Size = new Size(57, 48);
             librosToolStripMenuItem.Text = "Libro";
             // 
             // editorialToolStripMenuItem
             // 
             editorialToolStripMenuItem.Name = "editorialToolStripMenuItem";
-            editorialToolStripMenuItem.Size = new Size(79, 55);
+            editorialToolStripMenuItem.Size = new Size(79, 48);
             editorialToolStripMenuItem.Text = "Editorial";
             // 
             // ventaToolStripMenuItem
             // 
             ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
-            ventaToolStripMenuItem.Size = new Size(60, 55);
+            ventaToolStripMenuItem.Size = new Size(60, 48);
             ventaToolStripMenuItem.Text = "Venta";
             // 
             // préstamoToolStripMenuItem
             // 
             préstamoToolStripMenuItem.Name = "préstamoToolStripMenuItem";
-            préstamoToolStripMenuItem.Size = new Size(85, 55);
+            préstamoToolStripMenuItem.Size = new Size(85, 48);
             préstamoToolStripMenuItem.Text = "Préstamo";
             // 
             // copiaLibroToolStripMenuItem
             // 
             copiaLibroToolStripMenuItem.Name = "copiaLibroToolStripMenuItem";
-            copiaLibroToolStripMenuItem.Size = new Size(96, 55);
+            copiaLibroToolStripMenuItem.Size = new Size(96, 48);
             copiaLibroToolStripMenuItem.Text = "CopiaLibro";
             // 
             // clienteToolStripMenuItem
             // 
             clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            clienteToolStripMenuItem.Size = new Size(69, 55);
+            clienteToolStripMenuItem.Size = new Size(69, 48);
             clienteToolStripMenuItem.Text = "Cliente";
             // 
             // empleadoToolStripMenuItem
             // 
             empleadoToolStripMenuItem.Name = "empleadoToolStripMenuItem";
-            empleadoToolStripMenuItem.Size = new Size(91, 55);
+            empleadoToolStripMenuItem.Size = new Size(91, 48);
             empleadoToolStripMenuItem.Text = "Empleado";
             // 
             // pictureBoxInicio
             // 
-            pictureBoxInicio.Location = new Point(97, 95);
+            pictureBoxInicio.Anchor = AnchorStyles.None;
+            pictureBoxInicio.Location = new Point(98, 131);
             pictureBoxInicio.Name = "pictureBoxInicio";
-            pictureBoxInicio.Size = new Size(600, 321);
+            pictureBoxInicio.Size = new Size(622, 313);
             pictureBoxInicio.TabIndex = 1;
             pictureBoxInicio.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("SimSun", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(122, 64);
+            label1.Name = "label1";
+            label1.Size = new Size(568, 50);
+            label1.TabIndex = 2;
+            label1.Text = "Librería Programación";
             // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Tan;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(810, 463);
+            Controls.Add(label1);
             Controls.Add(pictureBoxInicio);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -134,6 +150,7 @@
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxInicio).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -150,5 +167,6 @@
         private ToolStripMenuItem empleadoToolStripMenuItem;
         private PictureBox pictureBoxInicio;
         private ColorDialog colorDialog1;
+        private Label label1;
     }
 }

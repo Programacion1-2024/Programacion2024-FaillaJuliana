@@ -10,7 +10,7 @@ namespace CLogica.Contracts
     public interface IPersonaLogic
     {
         Persona AltaPersona(Persona persona);
-        void ActualizacionPersona(string documento, Persona personaActualizar);
+        void ActualizacionPersona( Persona personaActualizar);
         void EliminacionPersona(string documento);
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CDatos.Migrations
 {
     /// <inheritdoc />
-    public partial class _1 : Migration
+    public partial class _0 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -54,6 +54,23 @@ namespace CDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Imagen",
+                columns: table => new
+                {
+                    IdImagen = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    URL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Tamanio = table.Column<long>(type: "bigint", nullable: false),
+                    TipoMime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FormularioOrigen = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ID_IMAGEN", x => x.IdImagen);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Persona",
                 columns: table => new
                 {
@@ -61,15 +78,39 @@ namespace CDatos.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Apellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Direccion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CorreoElectronico = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Nacionalidad = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Documento = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TipoDocumento = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Documento = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TipoDocumento = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ID_PERSONA", x => x.IdPersona);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Libro",
+                columns: table => new
+                {
+                    IdLibro = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FechaPublicacion = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PrecioVenta = table.Column<float>(type: "real", nullable: false),
+                    IdEditorial = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ID_LIBRO", x => x.IdLibro);
+                    table.ForeignKey(
+                        name: "FK_Libro_Editorial_IdEditorial",
+                        column: x => x.IdEditorial,
+                        principalTable: "Editorial",
+                        principalColumn: "IdEditorial",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,102 +174,47 @@ namespace CDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Prestamo",
+                name: "CopiaLibro",
                 columns: table => new
                 {
-                    IdPrestamo = table.Column<int>(type: "int", nullable: false)
+                    IdCopiaLibro = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FechaPrestamo = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaLimite = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaDevolucion = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IdCliente = table.Column<int>(type: "int", nullable: false),
-                    IdFormaDePago = table.Column<int>(type: "int", nullable: false),
-                    IdEmpleado = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ID_PRESTAMO", x => x.IdPrestamo);
-                    table.ForeignKey(
-                        name: "FK_Prestamo_Cliente_IdCliente",
-                        column: x => x.IdCliente,
-                        principalTable: "Cliente",
-                        principalColumn: "IdCliente",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Prestamo_Empleado_IdEmpleado",
-                        column: x => x.IdEmpleado,
-                        principalTable: "Empleado",
-                        principalColumn: "IdEmpleado",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Prestamo_FormaDePago_IdFormaDePago",
-                        column: x => x.IdFormaDePago,
-                        principalTable: "FormaDePago",
-                        principalColumn: "IdFormaDePago",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Venta",
-                columns: table => new
-                {
-                    IdVenta = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IdFormaDePago = table.Column<int>(type: "int", nullable: false),
-                    IdCliente = table.Column<int>(type: "int", nullable: false),
-                    IdEmpleado = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ID_VENTA", x => x.IdVenta);
-                    table.ForeignKey(
-                        name: "FK_Venta_Cliente_IdCliente",
-                        column: x => x.IdCliente,
-                        principalTable: "Cliente",
-                        principalColumn: "IdCliente",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Venta_Empleado_IdEmpleado",
-                        column: x => x.IdEmpleado,
-                        principalTable: "Empleado",
-                        principalColumn: "IdEmpleado",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Venta_FormaDePago_IdFormaDePago",
-                        column: x => x.IdFormaDePago,
-                        principalTable: "FormaDePago",
-                        principalColumn: "IdFormaDePago",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Libro",
-                columns: table => new
-                {
+                    PrecioPrestamo = table.Column<long>(type: "bigint", nullable: false),
                     IdLibro = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FechaPublicacion = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PrecioVenta = table.Column<int>(type: "int", nullable: false),
-                    IdEditorial = table.Column<int>(type: "int", nullable: false),
-                    IdVenta = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ID_LIBRO", x => x.IdLibro);
+                    table.PrimaryKey("PK_ID_COPIALIBRO", x => x.IdCopiaLibro);
                     table.ForeignKey(
-                        name: "FK_Libro_Editorial_IdEditorial",
-                        column: x => x.IdEditorial,
-                        principalTable: "Editorial",
-                        principalColumn: "IdEditorial",
+                        name: "FK_CopiaLibro_Libro_IdLibro",
+                        column: x => x.IdLibro,
+                        principalTable: "Libro",
+                        principalColumn: "IdLibro");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GeneroLibro",
+                columns: table => new
+                {
+                    IdGeneroLibro = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdGenero = table.Column<int>(type: "int", nullable: false),
+                    IdLibro = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ID_GENEROLIBRO", x => x.IdGeneroLibro);
+                    table.ForeignKey(
+                        name: "FK_GeneroLibro_Genero_IdGenero",
+                        column: x => x.IdGenero,
+                        principalTable: "Genero",
+                        principalColumn: "IdGenero",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Libro_Venta_IdVenta",
-                        column: x => x.IdVenta,
-                        principalTable: "Venta",
-                        principalColumn: "IdVenta",
+                        name: "FK_GeneroLibro_Libro_IdLibro",
+                        column: x => x.IdLibro,
+                        principalTable: "Libro",
+                        principalColumn: "IdLibro",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -259,54 +245,86 @@ namespace CDatos.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CopiaLibro",
+                name: "Venta",
                 columns: table => new
                 {
-                    IdCopiaLibro = table.Column<int>(type: "int", nullable: false)
+                    IdVenta = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PrecioPrestamo = table.Column<long>(type: "bigint", nullable: false),
-                    IdPrestamo = table.Column<int>(type: "int", nullable: false),
-                    IdLibro = table.Column<int>(type: "int", nullable: false)
+                    FechaVenta = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IdFormaDePago = table.Column<int>(type: "int", nullable: false),
+                    IdCliente = table.Column<int>(type: "int", nullable: false),
+                    IdLibro = table.Column<int>(type: "int", nullable: false),
+                    IdEmpleado = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ID_COPIALIBRO", x => x.IdCopiaLibro);
+                    table.PrimaryKey("PK_ID_VENTA", x => x.IdVenta);
                     table.ForeignKey(
-                        name: "FK_CopiaLibro_Libro_IdLibro",
+                        name: "FK_Venta_Cliente_IdCliente",
+                        column: x => x.IdCliente,
+                        principalTable: "Cliente",
+                        principalColumn: "IdCliente",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Venta_Empleado_IdEmpleado",
+                        column: x => x.IdEmpleado,
+                        principalTable: "Empleado",
+                        principalColumn: "IdEmpleado",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Venta_FormaDePago_IdFormaDePago",
+                        column: x => x.IdFormaDePago,
+                        principalTable: "FormaDePago",
+                        principalColumn: "IdFormaDePago",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Venta_Libro_IdLibro",
                         column: x => x.IdLibro,
                         principalTable: "Libro",
-                        principalColumn: "IdLibro");
-                    table.ForeignKey(
-                        name: "FK_CopiaLibro_Prestamo_IdPrestamo",
-                        column: x => x.IdPrestamo,
-                        principalTable: "Prestamo",
-                        principalColumn: "IdPrestamo",
+                        principalColumn: "IdLibro",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "GeneroLibro",
+                name: "Prestamo",
                 columns: table => new
                 {
-                    IdGeneroLibro = table.Column<int>(type: "int", nullable: false)
+                    IdPrestamo = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdGenero = table.Column<int>(type: "int", nullable: false),
-                    IdLibro = table.Column<int>(type: "int", nullable: false)
+                    FechaPrestamo = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaLimite = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FechaDevolucion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IdCliente = table.Column<int>(type: "int", nullable: false),
+                    IdFormaDePago = table.Column<int>(type: "int", nullable: false),
+                    IdCopia = table.Column<int>(type: "int", nullable: false),
+                    IdEmpleado = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ID_GENEROLIBRO", x => x.IdGeneroLibro);
+                    table.PrimaryKey("PK_ID_PRESTAMO", x => x.IdPrestamo);
                     table.ForeignKey(
-                        name: "FK_GeneroLibro_Genero_IdGenero",
-                        column: x => x.IdGenero,
-                        principalTable: "Genero",
-                        principalColumn: "IdGenero",
+                        name: "FK_Prestamo_Cliente_IdCliente",
+                        column: x => x.IdCliente,
+                        principalTable: "Cliente",
+                        principalColumn: "IdCliente",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_GeneroLibro_Libro_IdLibro",
-                        column: x => x.IdLibro,
-                        principalTable: "Libro",
-                        principalColumn: "IdLibro",
+                        name: "FK_Prestamo_CopiaLibro_IdCopia",
+                        column: x => x.IdCopia,
+                        principalTable: "CopiaLibro",
+                        principalColumn: "IdCopiaLibro",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Prestamo_Empleado_IdEmpleado",
+                        column: x => x.IdEmpleado,
+                        principalTable: "Empleado",
+                        principalColumn: "IdEmpleado",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Prestamo_FormaDePago_IdFormaDePago",
+                        column: x => x.IdFormaDePago,
+                        principalTable: "FormaDePago",
+                        principalColumn: "IdFormaDePago",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -340,11 +358,6 @@ namespace CDatos.Migrations
                 column: "IdLibro");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CopiaLibro_IdPrestamo",
-                table: "CopiaLibro",
-                column: "IdPrestamo");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Empleado_IdPersona",
                 table: "Empleado",
                 column: "IdPersona",
@@ -367,14 +380,14 @@ namespace CDatos.Migrations
                 column: "IdEditorial");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Libro_IdVenta",
-                table: "Libro",
-                column: "IdVenta");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Prestamo_IdCliente",
                 table: "Prestamo",
                 column: "IdCliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Prestamo_IdCopia",
+                table: "Prestamo",
+                column: "IdCopia");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prestamo_IdEmpleado",
@@ -400,6 +413,11 @@ namespace CDatos.Migrations
                 name: "IX_Venta_IdFormaDePago",
                 table: "Venta",
                 column: "IdFormaDePago");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Venta_IdLibro",
+                table: "Venta",
+                column: "IdLibro");
         }
 
         /// <inheritdoc />
@@ -409,28 +427,25 @@ namespace CDatos.Migrations
                 name: "AutorLibro");
 
             migrationBuilder.DropTable(
-                name: "CopiaLibro");
-
-            migrationBuilder.DropTable(
                 name: "GeneroLibro");
 
             migrationBuilder.DropTable(
-                name: "Autor");
+                name: "Imagen");
 
             migrationBuilder.DropTable(
                 name: "Prestamo");
 
             migrationBuilder.DropTable(
+                name: "Venta");
+
+            migrationBuilder.DropTable(
+                name: "Autor");
+
+            migrationBuilder.DropTable(
                 name: "Genero");
 
             migrationBuilder.DropTable(
-                name: "Libro");
-
-            migrationBuilder.DropTable(
-                name: "Editorial");
-
-            migrationBuilder.DropTable(
-                name: "Venta");
+                name: "CopiaLibro");
 
             migrationBuilder.DropTable(
                 name: "Cliente");
@@ -442,7 +457,13 @@ namespace CDatos.Migrations
                 name: "FormaDePago");
 
             migrationBuilder.DropTable(
+                name: "Libro");
+
+            migrationBuilder.DropTable(
                 name: "Persona");
+
+            migrationBuilder.DropTable(
+                name: "Editorial");
         }
     }
 }

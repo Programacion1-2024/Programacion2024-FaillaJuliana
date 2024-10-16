@@ -53,7 +53,7 @@ namespace CLogica.Implementations
                     throw new ArgumentException("La biografía es demasiado larga o está vacía.");
                 }
 
-                _autorRepository.Create(autorNuevo);
+                _autorRepository.CrearAutor(autorNuevo);
                 _autorRepository.Save();
             }
             catch (Exception ex)
@@ -65,41 +65,40 @@ namespace CLogica.Implementations
         }
 
 
-        public void ModificarAutor(string nombre, string apellido, string nacionalidad, string telefono, string email, string biografia)
+        public void ModificarAutor(string idAutor, string nombre, string apellido, string nacionalidad, string telefono, string email, string biografia)
         {
             try
             {
+                Autor autorExistente = _autorRepository.ObtenerPorId(idAutor); 
+
+                if (autorExistente == null)
+                {
+                    throw new ArgumentException("El autor no fue encontrado.");
+                }
+
                 Persona personaModificar = new Persona()
                 {
+                    IdPersona = autorExistente.Persona.IdPersona, 
                     Nombre = nombre,
                     Apellido = apellido,
                     Nacionalidad = nacionalidad,
                     Telefono = telefono,
                     Email = email,
-                    Documento = null
+                    Documento = null 
                 };
 
-                Persona persona = _personaLogic.AltaPersona(personaModificar);
+                _personaLogic.ActualizacionPersona(personaModificar);
 
-                Autor autorModificado = new Autor()
-                {
-                    Persona = persona,
-                    Biografia = biografia
-                };
+                // Actualizar los datos del autor
+                autorExistente.Biografia = biografia;
 
-                if (autorModificado == null)
-                {
-                    throw new ArgumentNullException("No se ha ingresado ningun autor.");
-                }
-                if (autorModificado.Persona == null)
-                {
-                    throw new ArgumentNullException("El autor debe estar vinculado a una persona del sistema.");
-                }
-                if (string.IsNullOrEmpty(autorModificado.Biografia) || autorModificado.Biografia.Length > 4000)
+                if (string.IsNullOrEmpty(autorExistente.Biografia) || autorExistente.Biografia.Length > 4000)
                 {
                     throw new ArgumentNullException("La biografia es demasiado larga o está vacía.");
                 }
-                _autorRepository.Update(autorModificado);
+
+                // Guardar los cambios
+                _autorRepository.Update(autorExistente);
                 _autorRepository.Save();
             }
             catch (Exception ex)
@@ -107,6 +106,7 @@ namespace CLogica.Implementations
                 throw ex;
             }
         }
+
 
         public void BajaAutor(string documento)
         {
@@ -127,29 +127,23 @@ namespace CLogica.Implementations
         }
         public List<Autor> ConsultaTodosLosAutores()
         {
-            return _autorRepository.FindAll().ToList();
-        }
-        public List<Autor> ObtenerTodosLosAutoresParaListado()
-        {
-            return _autorRepository.ObtenerAutores()
-                .Select(a => new Autor
-                {
-                    Persona = new Persona
-                    {
-                        Nombre = a.Persona.Nombre,
-                        Apellido = a.Persona.Apellido,
-                        Nacionalidad = a.Persona.Nacionalidad,
-                        Email = a.Persona.Email,
-                        Telefono = a.Persona.Telefono,
-                    },
-                    Biografia = a.Biografia
-                }).ToList();
-        }
-        public Autor ObtenerAutorPorNombreYApellido(string nombre, string apellido)
-        {
-            Autor? autor = _autorRepository.GetByNombreYApellido(nombre, apellido); // Llamada sincrónica
-            return autor;
+            return _autorRepository
+                   .FindAllIQueryable()
+                   .Include(a => a.Persona)  
+                   .ToList();
         }
 
+        
+        public Autor ObtenerPorId(string id)
+        {
+            if (!int.TryParse(id, out int autorId))
+            {
+                throw new ArgumentException("El ID proporcionado no es válido.");
+            }
+
+            return _autorRepository.FindAllIQueryable()
+                .Include(a => a.Persona) 
+                .FirstOrDefault(a => a.IdAutor == autorId);
+        }
     }
 }

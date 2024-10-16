@@ -30,13 +30,24 @@ namespace CDatos.Repositories
         }
         public void CrearAutor(Autor autor)
         {
-            _context.Autor.Add(autor);
+            _context.Autor.Attach(autor);
+            _context.SaveChanges();
         }
         public Autor GetByNombreYApellido(string nombre, string apellido)
         {
             return _context.Autor
                            .Include(a => a.Persona) 
                            .FirstOrDefault(a => a.Persona.Nombre == nombre && a.Persona.Apellido == apellido);
+        }
+        public Autor ObtenerPorId(string idAutor)
+        {
+            if (int.TryParse(idAutor, out int id))
+            {
+                return _context.Autor
+                    .Include(a => a.Persona) 
+                    .FirstOrDefault(a => a.IdAutor == id);
+            }
+            return null;
         }
 
     }
