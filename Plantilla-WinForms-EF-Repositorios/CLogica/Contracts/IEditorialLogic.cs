@@ -8,5 +8,7 @@ namespace CLogica.Contracts
 {
     public interface IEditorialLogic
     {
+        void AltaEditorial(string descripcion, string contacto, string direccion);
+
     }
 }

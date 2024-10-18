@@ -37,6 +37,8 @@ namespace CPresentacion
             }
 
         }
+
+
         private void CargarListaAutores()
         {
             try
@@ -45,13 +47,15 @@ namespace CPresentacion
 
                 var autoresConDetalles = autores.Select(a => new
                 {
-                    a.IdAutor,            
+                    a.IdAutor,
                     a.Persona.Nombre,
                     a.Persona.Apellido,
-                    a.Biografia          
+                    a.Biografia
                 }).ToList();
 
                 dgv_Listado.DataSource = autoresConDetalles;
+
+                dgv_Listado.Columns["Eliminar"].DisplayIndex = dgv_Listado.Columns.Count - 1;
             }
             catch (Exception ex)
             {
@@ -121,7 +125,7 @@ namespace CPresentacion
             {
                 _autorLogic.AltaAutor(nombre, apellido, nacionalidad, telefono, email, biografia);
                 MessageBox.Show("Autor guardado correctamente.");
-                CargarListaAutores(); 
+                CargarListaAutores();
             }
             catch (Exception ex)
             {
@@ -131,8 +135,8 @@ namespace CPresentacion
 
         private void btn_guardarMod_Click(object sender, EventArgs e)
         {
-            string nombre = tb_nombreMod.Text.Trim();  
-            string apellido = tb_apellidoMod.Text.Trim();  
+            string nombre = tb_nombreMod.Text.Trim();
+            string apellido = tb_apellidoMod.Text.Trim();
             string nacionalidad = tb_nacionalidadMod.Text.Trim();
             string telefono = tb_telefonoMod.Text.Trim();
             string email = tb_emailMod.Text.Trim();
@@ -157,5 +161,28 @@ namespace CPresentacion
             }
         }
 
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inicio inicio = new Inicio(_personaLogic, _autorLogic);
+            inicio.Show();
+        }
+
+        private void dgv_Listado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string idAutor = dgv_Listado.Rows[e.RowIndex].Cells["IdAutor"].Value.ToString();
+                _autorLogic.BajaAutor(idAutor);
+                MessageBox.Show("Autor eliminado correctamente.");
+                CargarListaAutores();
+                CargarComboBoxAutores();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.InnerException?.Message ?? ex.Message);
+            }
+
+        }
     }
 }

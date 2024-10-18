@@ -10,7 +10,7 @@ namespace CDatos.Repositories.Contracts
         IEnumerable<T> FindByCondition(Expression<Func<T, bool>> expression);
         Task<T> GetById(int id);
         IEnumerable<T> FindAll();
-        IQueryable<Autor> FindAllIQueryable();
+        IQueryable<T> FindAllIQueryable();
 
         void Create(T entity);
         void Update(T entity);

@@ -18,16 +18,16 @@ namespace CDatos.Repositories
         {
             return this._context.Set<T>().ToList();
         }
-        public IQueryable<Autor> FindAllIQueryable()
+        public IQueryable<T> FindAllIQueryable()
         {
-            return _context.Autor.AsQueryable(); 
+            return _context.Set<T>().AsQueryable(); 
         }
 
         public async Task<IEnumerable<T>> FindAllAsync()
         {
             return await this._context.Set<T>().ToListAsync();
         }
-
+       
         public async Task<IEnumerable<T>> FindByConditionAsync(Expression<Func<T, bool>> expression)
         {
             return await this._context.Set<T>().Where(expression).ToListAsync();

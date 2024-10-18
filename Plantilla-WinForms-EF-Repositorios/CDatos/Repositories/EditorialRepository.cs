@@ -29,5 +29,11 @@ namespace CDatos.Repositories
                 throw;
             }
         }
+        public Editorial ObtenerPorId(int idEditorial)
+        {
+           return _context.Editorial.FirstOrDefault(a => a.IdEditorial == idEditorial);
+
+
+        }
     }
 }

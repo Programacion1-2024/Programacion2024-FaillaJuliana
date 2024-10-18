@@ -10,5 +10,7 @@ namespace CDatos.Repositories.Contracts
     public interface IEditorialRepository : IRepository<Editorial>
     {
         Task<List<Editorial>> GetAll();
+        Editorial ObtenerPorId(int idEditorial);
+
     }
 }

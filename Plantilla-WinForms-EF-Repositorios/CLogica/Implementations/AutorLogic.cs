@@ -53,6 +53,7 @@ namespace CLogica.Implementations
                     throw new ArgumentException("La biografía es demasiado larga o está vacía.");
                 }
 
+
                 _autorRepository.CrearAutor(autorNuevo);
                 _autorRepository.Save();
             }
@@ -108,14 +109,10 @@ namespace CLogica.Implementations
         }
 
 
-        public void BajaAutor(string documento)
+        public void BajaAutor(string idAutor)
         {
-            if (string.IsNullOrEmpty(documento) || !PersonaLogic.IsValidDocumento(documento))
-            {
-                throw new ArgumentException("El documento ingresado no es válido.");
-            }
 
-            Autor? autorEliminar = _autorRepository.FindByCondition(p => p.Persona.Documento == documento).FirstOrDefault();
+            Autor autorEliminar = _autorRepository.ObtenerPorId(idAutor);
 
             if (autorEliminar == null)
             {
