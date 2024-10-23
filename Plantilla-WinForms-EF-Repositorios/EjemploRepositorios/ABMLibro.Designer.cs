@@ -1,6 +1,6 @@
 ﻿namespace CPresentacion
 {
-    partial class Inicio
+    partial class ABMLibro
     {
         /// <summary>
         /// Required designer variable.
@@ -38,11 +38,7 @@
             copiaLibroToolStripMenuItem = new ToolStripMenuItem();
             clienteToolStripMenuItem = new ToolStripMenuItem();
             empleadoToolStripMenuItem = new ToolStripMenuItem();
-            pictureBoxInicio = new PictureBox();
-            colorDialog1 = new ColorDialog();
-            label1 = new Label();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxInicio).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -53,7 +49,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(917, 52);
-            menuStrip1.TabIndex = 0;
+            menuStrip1.TabIndex = 1;
             menuStrip1.Text = "Menu";
             // 
             // inicioToolStripMenuItem
@@ -67,7 +63,6 @@
             autoresToolStripMenuItem.Name = "autoresToolStripMenuItem";
             autoresToolStripMenuItem.Size = new Size(60, 48);
             autoresToolStripMenuItem.Text = "Autor";
-            autoresToolStripMenuItem.Click += autoresToolStripMenuItem_Click;
             // 
             // librosToolStripMenuItem
             // 
@@ -80,7 +75,6 @@
             editorialToolStripMenuItem.Name = "editorialToolStripMenuItem";
             editorialToolStripMenuItem.Size = new Size(79, 48);
             editorialToolStripMenuItem.Text = "Editorial";
-            editorialToolStripMenuItem.Click += editorialToolStripMenuItem_Click;
             // 
             // ventaToolStripMenuItem
             // 
@@ -112,44 +106,17 @@
             empleadoToolStripMenuItem.Size = new Size(91, 48);
             empleadoToolStripMenuItem.Text = "Empleado";
             // 
-            // pictureBoxInicio
-            // 
-            pictureBoxInicio.Anchor = AnchorStyles.None;
-            pictureBoxInicio.Location = new Point(69, 158);
-            pictureBoxInicio.Name = "pictureBoxInicio";
-            pictureBoxInicio.Size = new Size(784, 414);
-            pictureBoxInicio.TabIndex = 1;
-            pictureBoxInicio.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("SimSun", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(172, 90);
-            label1.Name = "label1";
-            label1.Size = new Size(568, 50);
-            label1.TabIndex = 2;
-            label1.Text = "Librería Programación";
-            // 
-            // Inicio
+            // ABMLibro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Tan;
             ClientSize = new Size(917, 614);
-            Controls.Add(label1);
-            Controls.Add(pictureBoxInicio);
             Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
-            Name = "Inicio";
-            Text = "Inicio";
-            Load += Inicio_Load;
+            Name = "ABMLibro";
+            Text = "ABMLibro";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxInicio).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -164,8 +131,5 @@
         private ToolStripMenuItem copiaLibroToolStripMenuItem;
         private ToolStripMenuItem clienteToolStripMenuItem;
         private ToolStripMenuItem empleadoToolStripMenuItem;
-        private PictureBox pictureBoxInicio;
-        private ColorDialog colorDialog1;
-        private Label label1;
     }
 }

@@ -3,6 +3,7 @@ using CDatos.Repositories.Contracts;
 using CEntidades.Entidades;
 using CLogica.Contracts;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 
 namespace CLogica.Implementations
@@ -52,7 +53,7 @@ namespace CLogica.Implementations
                 throw new Exception("Error al crear editorial: " + innerExceptionMessage);
             }
         }
-        public void ModificarEditorial(int idEditorial,string descripcion, string contacto, string direccion)
+        public void ModificarEditorial(string idEditorial,string descripcion, string contacto, string direccion)
         {
             try
             {
@@ -62,26 +63,23 @@ namespace CLogica.Implementations
                     throw new ArgumentException("La editorial no fue encontrada.");
                 }
 
-                Editorial editoriaModificar= new Editorial()
-                {
-                    Descripcion = descripcion,
-                    Contacto = contacto,
-                    Direccion = direccion
-                };
+                editorialExistente.Descripcion = descripcion;
+                editorialExistente.Contacto = contacto;
+                editorialExistente.Direccion = direccion;
 
-                if (editoriaModificar == null)
+                if (editorialExistente == null)
                 {
                     throw new ArgumentException("Editorial no puede ser null.");
                 }
-                if (string.IsNullOrEmpty(editoriaModificar.Descripcion))
+                if (string.IsNullOrEmpty(editorialExistente.Descripcion))
                 {
                     throw new ArgumentException("La biografía está vacía.");
                 }
-                if (string.IsNullOrEmpty(editoriaModificar.Contacto) || !PersonaLogic.IsValidTelefono(editoriaModificar.Contacto))
+                if (string.IsNullOrEmpty(editorialExistente.Contacto) || !PersonaLogic.IsValidTelefono(editorialExistente.Contacto))
                 {
                     throw new ArgumentException("El contacto es demasiado largo o está vacía.");
                 }
-                if (string.IsNullOrEmpty(editoriaModificar.Direccion))
+                if (string.IsNullOrEmpty(editorialExistente.Direccion))
                 {
                     throw new ArgumentException("La direccion está vacía.");
                 }
@@ -96,7 +94,7 @@ namespace CLogica.Implementations
             }
         }
 
-        public void BajaEditorial(int idEditorial)
+        public void BajaEditorial(string idEditorial)
         {
 
             Editorial editorialEliminar = _editorialRepository.ObtenerPorId(idEditorial);
@@ -110,16 +108,18 @@ namespace CLogica.Implementations
             _editorialRepository.Save();
 
         }
-        public Editorial ObtenerPorIdEditorial(int idEditorial)
+        public Editorial ObtenerPorIdEditorial(string idEditorial)
         {
-           
-            return _editorialRepository.FindAllIQueryable().FirstOrDefault(a => a.IdEditorial == idEditorial);
+            if (int.TryParse(idEditorial, out int id))
+            {
+                return _editorialRepository.FindAllIQueryable().FirstOrDefault(a => a.IdEditorial == id);
+            }
+            else
+            { throw new ArgumentException("id invalido"); }
         }
-        public List<Editorial> ObtenerEditoriales()
+        public IEnumerable<Editorial> ObtenerEditoriales()
         {
-            return _editorialRepository
-                  .FindAllIQueryable()
-                  .ToList();
+            return this._editorialRepository.FindAll().ToList();
         }
 
     }

@@ -40,17 +40,17 @@ namespace EjemploRepositorios
 
                     services.AddTransient<IAutorLogic, AutorLogic>();
                     services.AddTransient<IPersonaLogic, PersonaLogic>();
-                    services.AddTransient<IImagenLogic, ImagenLogic>();
+                    services.AddTransient<IEditorialLogic, EditorialLogic>();
 
 
                     services.AddTransient<IAutorRepository, AutorRepository>();
                     services.AddTransient<IPersonaRepository, PersonaRepository>();
-                    services.AddTransient<IIImagenRepository, ImagenRepository>();
-
+                    services.AddTransient<IEditorialRepository, EditorialRepository>();
 
 
                     services.AddTransient<ABMAutor>();
                     services.AddTransient<Inicio>();
+                    services.AddTransient<ABMEditorial>();
 
 
 

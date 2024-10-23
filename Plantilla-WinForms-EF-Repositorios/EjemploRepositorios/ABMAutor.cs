@@ -1,14 +1,7 @@
 ﻿using CLogica.Contracts;
 using CEntidades.Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace CPresentacion
 {
@@ -16,6 +9,7 @@ namespace CPresentacion
     {
         private IAutorLogic _autorLogic;
         private IPersonaLogic _personaLogic;
+        private IEditorialLogic _editorialLogic;
         public ABMAutor(IAutorLogic autorLogic, IPersonaLogic personaLogic)
         {
             _autorLogic = autorLogic;
@@ -105,7 +99,7 @@ namespace CPresentacion
             }
         }
 
-        private void btn_guardarAlta_Click(object sender, EventArgs e)
+        private  void btn_guardarAlta_Click(object sender, EventArgs e)
         {
             string nombre = tb_nombre.Text.Trim();
             string apellido = tb_apellido.Text.Trim();
@@ -123,7 +117,7 @@ namespace CPresentacion
 
             try
             {
-                _autorLogic.AltaAutor(nombre, apellido, nacionalidad, telefono, email, biografia);
+                 _autorLogic.AltaAutor(nombre, apellido, nacionalidad, telefono, email, biografia);
                 MessageBox.Show("Autor guardado correctamente.");
                 CargarListaAutores();
             }
@@ -133,7 +127,7 @@ namespace CPresentacion
             }
         }
 
-        private void btn_guardarMod_Click(object sender, EventArgs e)
+        private  void btn_guardarMod_Click(object sender, EventArgs e)
         {
             string nombre = tb_nombreMod.Text.Trim();
             string apellido = tb_apellidoMod.Text.Trim();
@@ -151,7 +145,7 @@ namespace CPresentacion
 
             try
             {
-                _autorLogic.ModificarAutor(idAutor, nombre, apellido, nacionalidad, telefono, email, biografia);
+                 _autorLogic.ModificarAutor(idAutor, nombre, apellido, nacionalidad, telefono, email, biografia);
                 MessageBox.Show("Autor modificado correctamente.");
                 CargarListaAutores();
             }
@@ -161,12 +155,7 @@ namespace CPresentacion
             }
         }
 
-        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Inicio inicio = new Inicio(_personaLogic, _autorLogic);
-            inicio.Show();
-        }
+        
 
         private void dgv_Listado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -184,5 +173,19 @@ namespace CPresentacion
             }
 
         }
+
+        private void editorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMEditorial editorial = new ABMEditorial(_editorialLogic);
+            editorial.Show();
+        }
+        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Inicio inicio = new Inicio(_personaLogic, _autorLogic,_editorialLogic);
+            inicio.Show();
+        }
+
     }
 }

@@ -16,12 +16,13 @@ namespace CPresentacion
     {
         private IPersonaLogic _personaLogic;
         private IAutorLogic _autorLogic;
+        private IEditorialLogic _editorialLogic;
 
-
-        public Inicio(IPersonaLogic personaLogic, IAutorLogic autorLogic )
+        public Inicio(IPersonaLogic personaLogic, IAutorLogic autorLogic,IEditorialLogic editorialLogic)
         {
             _personaLogic = personaLogic;
             _autorLogic = autorLogic;
+            _editorialLogic = editorialLogic;
             InitializeComponent();
         }
 
@@ -48,5 +49,11 @@ namespace CPresentacion
             abmautores.Show();
         }
 
+        private void editorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMEditorial abmEditorial = new ABMEditorial(_editorialLogic);
+            abmEditorial.Show();
+        }
     }
 }

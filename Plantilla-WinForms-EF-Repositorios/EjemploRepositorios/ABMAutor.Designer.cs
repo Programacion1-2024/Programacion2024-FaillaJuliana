@@ -480,6 +480,7 @@
             editorialToolStripMenuItem.Name = "editorialToolStripMenuItem";
             editorialToolStripMenuItem.Size = new Size(79, 48);
             editorialToolStripMenuItem.Text = "Editorial";
+            editorialToolStripMenuItem.Click += editorialToolStripMenuItem_Click;
             // 
             // ventaToolStripMenuItem
             // 

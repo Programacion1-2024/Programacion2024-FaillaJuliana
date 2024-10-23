@@ -29,10 +29,18 @@ namespace CDatos.Repositories
                 throw;
             }
         }
-        public Editorial ObtenerPorId(int idEditorial)
+        public List<Editorial> ObtenerEditoriales()
         {
-           return _context.Editorial.FirstOrDefault(a => a.IdEditorial == idEditorial);
-
+            return _context.Editorial.ToList();
+        }
+        public Editorial ObtenerPorId(string idEditorial)
+        {
+            if (int.TryParse(idEditorial, out int id))
+            {
+                return _context.Editorial.FirstOrDefault(a => a.IdEditorial == id);
+            }
+            else
+            { throw new Exception("id invalido"); }
 
         }
     }
