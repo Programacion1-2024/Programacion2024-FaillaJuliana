@@ -49,6 +49,10 @@ namespace CDatos.Repositories
             }
             return null;
         }
+        public List<Autor> ObtenerPorIdLista(List<int> ids)
+        {
+            return _context.Autor.Where(a => ids.Contains(a.IdAutor)).ToList();
+        }
 
     }
 }

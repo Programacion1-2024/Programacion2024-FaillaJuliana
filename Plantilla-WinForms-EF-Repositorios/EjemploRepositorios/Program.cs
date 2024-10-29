@@ -41,20 +41,26 @@ namespace EjemploRepositorios
                     services.AddTransient<IAutorLogic, AutorLogic>();
                     services.AddTransient<IPersonaLogic, PersonaLogic>();
                     services.AddTransient<IEditorialLogic, EditorialLogic>();
+                    services.AddTransient<ILibroLogic, LibroLogic>();
+                    services.AddTransient<IGeneroLogic, GeneroLogic>();
 
 
                     services.AddTransient<IAutorRepository, AutorRepository>();
                     services.AddTransient<IPersonaRepository, PersonaRepository>();
                     services.AddTransient<IEditorialRepository, EditorialRepository>();
+                    services.AddTransient<ILibroRepository, LibroRepository>();
+                    services.AddTransient<IGeneroRepository, GeneroRepository>();
 
 
                     services.AddTransient<ABMAutor>();
                     services.AddTransient<Inicio>();
                     services.AddTransient<ABMEditorial>();
+                    services.AddTransient<ABMLibro>();
+                    services.AddTransient<ABMGenero>();
 
 
 
-                    services.AddDbContext<LibreriaContext>(options => options.UseSqlServer("Data Source=LAPTOP-MFV6MCLC\\SQLEXPRESS;Initial Catalog=LibreriaProgramacion1;Integrated Security=True;TrustServerCertificate=true"), ServiceLifetime.Transient);
+                    services.AddDbContext<LibreriaContext>(options => options.UseSqlServer("Data Source=LAPTOP-MFV6MCLC\\SQLEXPRESS;Initial Catalog=LibreriaProgramacion1;Integrated Security=True;TrustServerCertificate=true"), ServiceLifetime.Scoped);
                 });
         }
     }

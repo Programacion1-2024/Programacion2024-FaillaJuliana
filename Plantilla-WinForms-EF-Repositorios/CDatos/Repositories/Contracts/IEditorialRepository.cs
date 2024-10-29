@@ -12,6 +12,7 @@ namespace CDatos.Repositories.Contracts
         Task<List<Editorial>> GetAll();
         Editorial ObtenerPorId(string idEditorial);
         List<Editorial> ObtenerEditoriales();
+        Editorial ObtenerEditorialPorNombre(string descripcion);
 
 
     }

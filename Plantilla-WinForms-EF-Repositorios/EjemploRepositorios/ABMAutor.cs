@@ -1,6 +1,7 @@
 ﻿using CLogica.Contracts;
 using CEntidades.Entidades;
 using System.Data;
+using CLogica.Implementations;
 
 
 namespace CPresentacion
@@ -10,11 +11,15 @@ namespace CPresentacion
         private IAutorLogic _autorLogic;
         private IPersonaLogic _personaLogic;
         private IEditorialLogic _editorialLogic;
-        public ABMAutor(IAutorLogic autorLogic, IPersonaLogic personaLogic)
+        private ILibroLogic _libroLogic;
+        private IGeneroLogic _generoLogic;
+        public ABMAutor(IAutorLogic autorLogic, IPersonaLogic personaLogic,IEditorialLogic editorialLogic,ILibroLogic libroLogic,IGeneroLogic generoLogic)
         {
+            _editorialLogic = editorialLogic;
+            _libroLogic = libroLogic;
             _autorLogic = autorLogic;
             _personaLogic = personaLogic;
-
+            _generoLogic = generoLogic;
             InitializeComponent();
         }
 
@@ -99,7 +104,7 @@ namespace CPresentacion
             }
         }
 
-        private  void btn_guardarAlta_Click(object sender, EventArgs e)
+        private void btn_guardarAlta_Click(object sender, EventArgs e)
         {
             string nombre = tb_nombre.Text.Trim();
             string apellido = tb_apellido.Text.Trim();
@@ -117,9 +122,16 @@ namespace CPresentacion
 
             try
             {
-                 _autorLogic.AltaAutor(nombre, apellido, nacionalidad, telefono, email, biografia);
+                _autorLogic.AltaAutor(nombre, apellido, nacionalidad, telefono, email, biografia);
                 MessageBox.Show("Autor guardado correctamente.");
                 CargarListaAutores();
+                CargarComboBoxAutores();
+                tb_nombre.Clear();
+                tb_apellido.Clear();
+                tb_telefono.Clear();
+                tb_email.Clear();
+                tb_biografia.Clear();
+                tb_nacionalidad.Clear();
             }
             catch (Exception ex)
             {
@@ -127,7 +139,7 @@ namespace CPresentacion
             }
         }
 
-        private  void btn_guardarMod_Click(object sender, EventArgs e)
+        private void btn_guardarMod_Click(object sender, EventArgs e)
         {
             string nombre = tb_nombreMod.Text.Trim();
             string apellido = tb_apellidoMod.Text.Trim();
@@ -145,18 +157,21 @@ namespace CPresentacion
 
             try
             {
-                 _autorLogic.ModificarAutor(idAutor, nombre, apellido, nacionalidad, telefono, email, biografia);
+                _autorLogic.ModificarAutor(idAutor, nombre, apellido, nacionalidad, telefono, email, biografia);
                 MessageBox.Show("Autor modificado correctamente.");
                 CargarListaAutores();
+                tb_nombreMod.Clear();
+                tb_apellidoMod.Clear();
+                tb_telefonoMod.Clear();
+                tb_emailMod.Clear();
+                tb_nacionalidadMod.Clear();
+                tb_biografiaMod.Clear();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.InnerException?.Message ?? ex.Message);
             }
         }
-
-        
-
         private void dgv_Listado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -177,15 +192,27 @@ namespace CPresentacion
         private void editorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ABMEditorial editorial = new ABMEditorial(_editorialLogic);
+            ABMEditorial editorial = new ABMEditorial(_editorialLogic, _autorLogic, _personaLogic, _libroLogic,_generoLogic);
             editorial.Show();
         }
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Inicio inicio = new Inicio(_personaLogic, _autorLogic,_editorialLogic);
+            Inicio inicio = new Inicio(_personaLogic, _autorLogic, _editorialLogic, _libroLogic,_generoLogic);
             inicio.Show();
         }
 
+        private void librosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMLibro abmLibro = new ABMLibro (_libroLogic, _editorialLogic,_autorLogic,_personaLogic,_generoLogic);
+            abmLibro.Show();
+        }
+        private void generoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMGenero abmGenero = new ABMGenero(_personaLogic, _autorLogic, _editorialLogic, _libroLogic, _generoLogic);
+            abmGenero.Show();
+        }
     }
 }

@@ -41,6 +41,7 @@
             pictureBoxInicio = new PictureBox();
             colorDialog1 = new ColorDialog();
             label1 = new Label();
+            generoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxInicio).BeginInit();
             SuspendLayout();
@@ -49,7 +50,7 @@
             // 
             menuStrip1.AutoSize = false;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, autoresToolStripMenuItem, librosToolStripMenuItem, editorialToolStripMenuItem, ventaToolStripMenuItem, préstamoToolStripMenuItem, copiaLibroToolStripMenuItem, clienteToolStripMenuItem, empleadoToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, autoresToolStripMenuItem, librosToolStripMenuItem, editorialToolStripMenuItem, ventaToolStripMenuItem, préstamoToolStripMenuItem, copiaLibroToolStripMenuItem, clienteToolStripMenuItem, empleadoToolStripMenuItem, generoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(917, 52);
@@ -74,6 +75,7 @@
             librosToolStripMenuItem.Name = "librosToolStripMenuItem";
             librosToolStripMenuItem.Size = new Size(57, 48);
             librosToolStripMenuItem.Text = "Libro";
+            librosToolStripMenuItem.Click += librosToolStripMenuItem_Click;
             // 
             // editorialToolStripMenuItem
             // 
@@ -132,6 +134,13 @@
             label1.TabIndex = 2;
             label1.Text = "Librería Programación";
             // 
+            // generoToolStripMenuItem
+            // 
+            generoToolStripMenuItem.Name = "generoToolStripMenuItem";
+            generoToolStripMenuItem.Size = new Size(71, 48);
+            generoToolStripMenuItem.Text = "Genero";
+            generoToolStripMenuItem.Click += generoToolStripMenuItem_Click;
+            // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -167,5 +176,6 @@
         private PictureBox pictureBoxInicio;
         private ColorDialog colorDialog1;
         private Label label1;
+        private ToolStripMenuItem generoToolStripMenuItem;
     }
 }

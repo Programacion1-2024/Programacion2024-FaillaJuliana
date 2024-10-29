@@ -113,6 +113,7 @@ namespace CLogica.Implementations
             if (int.TryParse(idEditorial, out int id))
             {
                 return _editorialRepository.FindAllIQueryable().FirstOrDefault(a => a.IdEditorial == id);
+
             }
             else
             { throw new ArgumentException("id invalido"); }
@@ -121,6 +122,9 @@ namespace CLogica.Implementations
         {
             return this._editorialRepository.FindAll().ToList();
         }
-
+        public Editorial ObtenerEditorialPorNombre(string descripcion)
+        {
+            return _editorialRepository.FindAllIQueryable().FirstOrDefault(e => e.Descripcion == descripcion);
+        }
     }
 }

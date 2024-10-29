@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CDatos.Migrations
 {
     /// <inheritdoc />
-    public partial class _0 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -235,13 +235,13 @@ namespace CDatos.Migrations
                         column: x => x.IdAutor,
                         principalTable: "Autor",
                         principalColumn: "IdAutor",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_AutorLibro_Libro_IdLibro",
                         column: x => x.IdLibro,
                         principalTable: "Libro",
                         principalColumn: "IdLibro",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

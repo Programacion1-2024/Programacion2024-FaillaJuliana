@@ -446,13 +446,13 @@ namespace CDatos.Migrations
                     b.HasOne("CEntidades.Entidades.Autor", null)
                         .WithMany()
                         .HasForeignKey("IdAutor")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CEntidades.Entidades.Libro", null)
                         .WithMany()
                         .HasForeignKey("IdLibro")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 

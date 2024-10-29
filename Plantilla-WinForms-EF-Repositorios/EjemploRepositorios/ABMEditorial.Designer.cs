@@ -61,6 +61,7 @@
             tb_ContactoEditorialMod = new TextBox();
             tb_NombreEditorialMod = new TextBox();
             lb_NombreEditorialMod = new Label();
+            generoToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             ListadoEditores.SuspendLayout();
             Listado.SuspendLayout();
@@ -73,7 +74,7 @@
             // 
             menuStrip1.AutoSize = false;
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, autoresToolStripMenuItem, librosToolStripMenuItem, editorialToolStripMenuItem, ventaToolStripMenuItem, préstamoToolStripMenuItem, copiaLibroToolStripMenuItem, clienteToolStripMenuItem, empleadoToolStripMenuItem, toolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { inicioToolStripMenuItem, autoresToolStripMenuItem, librosToolStripMenuItem, editorialToolStripMenuItem, ventaToolStripMenuItem, préstamoToolStripMenuItem, copiaLibroToolStripMenuItem, clienteToolStripMenuItem, empleadoToolStripMenuItem, toolStripMenuItem1, generoToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(915, 52);
@@ -99,6 +100,7 @@
             librosToolStripMenuItem.Name = "librosToolStripMenuItem";
             librosToolStripMenuItem.Size = new Size(57, 48);
             librosToolStripMenuItem.Text = "Libro";
+            librosToolStripMenuItem.Click += librosToolStripMenuItem_Click;
             // 
             // editorialToolStripMenuItem
             // 
@@ -358,6 +360,12 @@
             lb_NombreEditorialMod.TabIndex = 7;
             lb_NombreEditorialMod.Text = "Nombre";
             // 
+            // generoToolStripMenuItem
+            // 
+            generoToolStripMenuItem.Name = "generoToolStripMenuItem";
+            generoToolStripMenuItem.Size = new Size(71, 48);
+            generoToolStripMenuItem.Text = "Genero";
+            // 
             // ABMEditorial
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -416,5 +424,6 @@
         private TextBox tb_NombreEditorialMod;
         private Label lb_NombreEditorialMod;
         private DataGridViewButtonColumn Eliminar;
+        private ToolStripMenuItem generoToolStripMenuItem;
     }
 }

@@ -28,5 +28,19 @@ namespace CDatos.Repositories
                 throw;
             }
         }
+        public Libro ObtenerPorId(string idLibro)
+        {
+            if (int.TryParse(idLibro, out int id))
+            {
+                return _context.Libro.FirstOrDefault(a => a.IdLibro == id);
+            }
+            else
+            { throw new Exception("id invalido"); }
+
+        }
+        public List<Libro> ObtenerPorIdLista(List<int> ids)
+        {
+            return _context.Libro.Where(a => ids.Contains(a.IdLibro)).ToList();
+        }
     }
 }

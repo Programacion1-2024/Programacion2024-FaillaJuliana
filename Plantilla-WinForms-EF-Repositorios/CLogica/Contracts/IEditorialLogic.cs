@@ -14,6 +14,7 @@ namespace CLogica.Contracts
         void BajaEditorial(string idEditorial);
         IEnumerable<Editorial> ObtenerEditoriales();
         Editorial ObtenerPorIdEditorial(string idEditorial);
+        Editorial ObtenerEditorialPorNombre(string descripcion);
 
 
 

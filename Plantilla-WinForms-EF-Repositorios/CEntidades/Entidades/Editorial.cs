@@ -12,6 +12,6 @@ namespace CEntidades.Entidades
         public string Descripcion { get; set; }    
         public string Contacto { get;  set; }
         public string Direccion { get; set;}
-        public ICollection<Libro> Libros { get; set; }   
+        public ICollection<Libro> Libros { get; set; } = new List<Libro>();
     }
 }

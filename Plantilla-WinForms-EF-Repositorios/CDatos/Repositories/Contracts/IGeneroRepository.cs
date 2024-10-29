@@ -9,6 +9,8 @@ namespace CDatos.Repositories.Contracts
 {
     public interface IGeneroRepository : IRepository<Genero>
     {
-        Task<List<Libro>> GetAll();
+        Task<List<Genero>> GetAll();
+        Genero ObtenerPorId(string idGenero);
+
     }
 }

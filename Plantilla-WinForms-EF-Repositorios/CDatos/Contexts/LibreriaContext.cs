@@ -47,13 +47,23 @@ namespace CDatos.Contexts
             {
                 entity.HasKey(e => e.IdAutor)
                     .HasName("PK_ID_AUTOR");
+
                 entity.HasMany(e => e.Libros)
-                      .WithMany(e => e.Autores)
-                      .UsingEntity<AutorLibro>(
-                       l =>l.HasOne<Libro>().WithMany().HasForeignKey(e=>e.IdLibro),
-                       a => a.HasOne<Autor>().WithMany().HasForeignKey(e => e.IdAutor)
+                    .WithMany(e => e.Autores)
+                    .UsingEntity<AutorLibro>(
+                        l => l
+                            .HasOne<Libro>()
+                            .WithMany()
+                            .HasForeignKey(e => e.IdLibro)
+                            .OnDelete(DeleteBehavior.Restrict), 
+                        a => a
+                            .HasOne<Autor>()
+                            .WithMany()
+                            .HasForeignKey(e => e.IdAutor)
+                            .OnDelete(DeleteBehavior.Restrict) 
                     );
             });
+
             modelBuilder.Entity<Cliente>(entity =>
             {
                 entity.HasKey(e => e.IdCliente)
@@ -150,7 +160,6 @@ namespace CDatos.Contexts
                     .WithOne(e => e.Libro)
                     .HasForeignKey("IdLibro")
                     .IsRequired();
-
             }); 
             modelBuilder.Entity<Persona>(entity =>
             {

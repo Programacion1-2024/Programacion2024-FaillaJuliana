@@ -10,6 +10,9 @@ namespace CDatos.Repositories.Contracts
     public interface ILibroRepository : IRepository<Libro>
     {
         Task<List<Libro>> GetAll();
+        Libro ObtenerPorId(string idLibro);
+        List<Libro> ObtenerPorIdLista(List<int> ids);
+
     }
-    
+
 }

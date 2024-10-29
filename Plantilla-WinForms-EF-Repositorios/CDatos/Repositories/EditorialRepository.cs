@@ -43,5 +43,9 @@ namespace CDatos.Repositories
             { throw new Exception("id invalido"); }
 
         }
+        public Editorial ObtenerEditorialPorNombre(string descripcion)
+        {
+            return _context.Editorial.FirstOrDefault(e => e.Descripcion == descripcion);
+        }
     }
 }

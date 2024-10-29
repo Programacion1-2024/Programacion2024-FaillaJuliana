@@ -10,9 +10,15 @@ namespace CPresentacion
         private IEditorialLogic _editorialLogic;
         private IAutorLogic _autorLogic;
         private IPersonaLogic _personaLogic;
-        public ABMEditorial(IEditorialLogic editorialLogic)
+        private ILibroLogic _libroLogic;
+        private IGeneroLogic _generoLogic;
+        public ABMEditorial(IEditorialLogic editorialLogic,IAutorLogic autorLogic,IPersonaLogic personaLogic,ILibroLogic libroLogic,IGeneroLogic generoLogic)
         {
+            _autorLogic = autorLogic;
+            _personaLogic = personaLogic;
+            _libroLogic = libroLogic;
             _editorialLogic = editorialLogic;
+            _generoLogic = generoLogic;
             InitializeComponent();
         }
 
@@ -88,7 +94,11 @@ namespace CPresentacion
             {
                 _editorialLogic.AltaEditorial(descripcion, contacto, direccion);
                 MessageBox.Show("Editorial guardada correctamente.");
+                CargarComboBoxEditorial();
                 CargarListaEditorial();
+                tb_NombreEditorial.Clear();
+                tb_ContactoEditorial.Clear();
+                tb_DireccionEditorial.Clear();
             }
             catch (Exception ex)
             {
@@ -135,6 +145,9 @@ namespace CPresentacion
                 _editorialLogic.ModificarEditorial(idEditorial, descripcion, contacto, direccion);
                 MessageBox.Show("Editorial guardada correctamente.");
                 CargarListaEditorial();
+                tb_NombreEditorialMod.Clear();
+                tb_ContactoEditorialMod.Clear();
+                tb_DireccionEditorialMod.Clear();
             }
             catch (Exception ex)
             {
@@ -144,17 +157,28 @@ namespace CPresentacion
         private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Inicio inicio = new Inicio(_personaLogic, _autorLogic, _editorialLogic);
+            Inicio inicio = new Inicio(_personaLogic, _autorLogic, _editorialLogic, _libroLogic,_generoLogic);
             inicio.Show();
         }
 
         private void autoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ABMAutor abmAutor = new ABMAutor(_autorLogic, _personaLogic);
+            ABMAutor abmAutor = new ABMAutor(_autorLogic, _personaLogic,_editorialLogic,_libroLogic,_generoLogic);
             abmAutor.Show();
         }
 
-        
+        private void librosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMLibro abmLibro = new ABMLibro(_libroLogic, _editorialLogic, _autorLogic, _personaLogic, _generoLogic);
+            abmLibro.Show();
+        }
+        private void generoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMGenero abmGenero = new ABMGenero(_personaLogic, _autorLogic, _editorialLogic, _libroLogic, _generoLogic);
+            abmGenero.Show();
+        }
     }
 }

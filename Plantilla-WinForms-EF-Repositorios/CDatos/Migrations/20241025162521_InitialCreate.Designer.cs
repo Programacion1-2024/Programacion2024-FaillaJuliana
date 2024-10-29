@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CDatos.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
-    [Migration("20241016184330_0")]
-    partial class _0
+    [Migration("20241025162521_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -449,13 +449,13 @@ namespace CDatos.Migrations
                     b.HasOne("CEntidades.Entidades.Autor", null)
                         .WithMany()
                         .HasForeignKey("IdAutor")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("CEntidades.Entidades.Libro", null)
                         .WithMany()
                         .HasForeignKey("IdLibro")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 

@@ -11,19 +11,38 @@ namespace CLogica.Implementations
     public class LibroLogic: ILibroLogic
     {
         ILibroRepository _libroRepository;
-        public LibroLogic(ILibroRepository libroRepository)
+        IAutorRepository _autorRepository;
+        public LibroLogic(ILibroRepository libroRepository,IAutorRepository autorRepository)
         {
+            _autorRepository = autorRepository;
             _libroRepository = libroRepository;
         }
 
-        public void AltaLibro (Libro libro)
+        public void AltaLibro (string isbn, string titulo, string descripcion, DateTime fechaPublicacion,float previoVenta, Editorial editorial,List<int> autores)
         {
+            List<Autor> listaAutores = _autorRepository.ObtenerPorIdLista(autores);
+
+            Libro libro = new Libro()
+            {
+                ISBN = isbn,
+                Titulo = titulo,
+                Descripcion = descripcion,
+                FechaPublicacion = fechaPublicacion,
+                PrecioVenta = previoVenta,
+                Editorial = editorial, 
+                Autores = new List<Autor>(listaAutores)
+            };
 
             List<string> camposErroneos = new List<string>();
 
+            if (editorial == null)
+            {
+                throw new ArgumentException("La editorial no puede ser nula.");
+            }
+
             if (string.IsNullOrEmpty(libro.Titulo) || !PersonaLogic.IsValidName(libro.Titulo))
                 camposErroneos.Add("Titulo");
-            if(string.IsNullOrEmpty(libro.Descripcion) || !PersonaLogic.IsValidName(libro.Descripcion))
+            if(string.IsNullOrEmpty(libro.Descripcion) || libro.Descripcion.Length > 4000)
                 camposErroneos.Add("Descripcion");
             if (libro.FechaPublicacion == DateTime.MinValue || !IsValidFecha(libro.FechaPublicacion))
                 camposErroneos.Add("FechaPublicacion");
@@ -36,31 +55,36 @@ namespace CLogica.Implementations
             {
                 throw new ArgumentException("Los siguientes campos son invalidos: ", String.Join(",", camposErroneos));
             }
-            Libro libroNuevo = new Libro();
-
-
-            libroNuevo.ISBN = libro.ISBN;
-            libroNuevo.Titulo = libro.Titulo;
-            libroNuevo.Descripcion = libro.Descripcion;
-            libroNuevo.FechaPublicacion = libro.FechaPublicacion;
-            libroNuevo.PrecioVenta = libro.PrecioVenta;
-            libroNuevo.Editorial = libro.Editorial;
 
             _libroRepository.Create(libro);
             _libroRepository.Save();
         }
 
-        public void ModificarLibro(string titulo,Libro libroModificar)
+        public async Task ModificarLibro(string idLibro,string isbn, string titulo, string descripcion, DateTime fechaPublicacion, float previoVenta, Editorial editorial, List<int> autores)
         {
+            List<Autor> listaAutores = _autorRepository.ObtenerPorIdLista(autores);
+
+            int.TryParse(idLibro, out int id);
+            
+            Libro? libroExistente =await _libroRepository.GetById(id);
+
+            libroExistente.ISBN=isbn;
+            libroExistente.Titulo=titulo;
+            libroExistente.Descripcion=descripcion;
+            libroExistente.FechaPublicacion=fechaPublicacion;
+            libroExistente.PrecioVenta=previoVenta;
+            libroExistente.Editorial=editorial;
+            libroExistente.Autores = new List<Autor>(listaAutores);
+
             List<string> camposErroneos = new List<string>();
 
-            if (string.IsNullOrEmpty(libroModificar.Descripcion) || !PersonaLogic.IsValidName(libroModificar.Descripcion))
+            if (string.IsNullOrEmpty(libroExistente.Descripcion) || !PersonaLogic.IsValidName(libroExistente.Descripcion))
                 camposErroneos.Add("Descripcion");
-            if (libroModificar.FechaPublicacion == DateTime.MinValue || !IsValidFecha(libroModificar.FechaPublicacion))
+            if (libroExistente.FechaPublicacion == DateTime.MinValue || !IsValidFecha(libroExistente.FechaPublicacion))
                 camposErroneos.Add("FechaPublicacion");
-            if (string.IsNullOrEmpty(libroModificar.ISBN) || !IsValidIsbn(libroModificar.ISBN) || _libroRepository.FindByCondition(p => p.ISBN == libroModificar.ISBN).Count() != 0)
+            if (string.IsNullOrEmpty(libroExistente.ISBN) || !IsValidIsbn(libroExistente.ISBN) || _libroRepository.FindByCondition(p => p.ISBN == libroExistente.ISBN).Count() != 0)
                 camposErroneos.Add("ISBN");
-            if (!IsValidPrecio(libroModificar.PrecioVenta))
+            if (!IsValidPrecio(libroExistente.PrecioVenta))
                 camposErroneos.Add("Precio Venta");
 
             if (camposErroneos.Count > 0)
@@ -68,35 +92,44 @@ namespace CLogica.Implementations
                 throw new ArgumentException("Los siguientes campos son invalidos: ", String.Join(",", camposErroneos));
             }
 
-            if (string.IsNullOrEmpty(libroModificar.Titulo) || !PersonaLogic.IsValidName(libroModificar.Titulo))
+            if (string.IsNullOrEmpty(libroExistente.Titulo) || !PersonaLogic.IsValidName(libroExistente.Titulo))
                 throw new ArgumentNullException("El titulo ingresado es invalido");
 
-            Libro? libro = _libroRepository.FindByCondition(p => p.Titulo == titulo).FirstOrDefault();
-
-            if (libro == null)
+            if (libroExistente == null)
             {
                 throw new ArgumentException("El libro con este titulo no fue encontrado");
             }
 
-            _libroRepository.Update(libro);
+            _libroRepository.Update(libroExistente);
             _libroRepository.Save();
         }
 
-        public void EliminarLibro(string titulo, Libro libroEliminar)
+        public async Task EliminarLibro(string idLibro)
         {
-            if (string.IsNullOrEmpty(libroEliminar.Titulo) || !PersonaLogic.IsValidName(libroEliminar.Titulo))
-                throw new ArgumentNullException("El titulo ingresado es invalido");
+            int.TryParse(idLibro, out int id);
 
-            Libro? libro = _libroRepository.FindByCondition(p => p.Titulo == titulo).FirstOrDefault();
+            Libro? libroExistente = await _libroRepository.GetById(id);
 
-            if (libro == null)
+            if (libroExistente == null)
             {
                 throw new ArgumentException("El libro con este titulo no fue encontrado");
             }
-            _libroRepository.Delete(libro);
+            _libroRepository.Delete(libroExistente);
             _libroRepository.Save();
         }
-
+        public Libro ObtenerPorIdLibro(string idLibro)
+        {
+            if (int.TryParse(idLibro, out int id))
+            {
+                return _libroRepository.FindAllIQueryable().FirstOrDefault(a => a.IdLibro == id);
+            }
+            else
+            { throw new ArgumentException("id invalido"); }
+        }
+        public IEnumerable<Libro> ObtenerLibros()
+        {
+            return this._libroRepository.FindAll().ToList();
+        }
         public Libro ConsultaLibro(string titulo, Libro libroBuscado)
         {
             if (string.IsNullOrEmpty(libroBuscado.Titulo) || !PersonaLogic.IsValidName(libroBuscado.Titulo))

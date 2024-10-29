@@ -1,5 +1,6 @@
 ﻿using CEntidades.Entidades;
 using CLogica.Contracts;
+using CLogica.Implementations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +18,17 @@ namespace CPresentacion
         private IPersonaLogic _personaLogic;
         private IAutorLogic _autorLogic;
         private IEditorialLogic _editorialLogic;
+        private ILibroLogic _libroLogic;
+        private IGeneroLogic _generoLogic;
 
-        public Inicio(IPersonaLogic personaLogic, IAutorLogic autorLogic,IEditorialLogic editorialLogic)
+        public Inicio(IPersonaLogic personaLogic, IAutorLogic autorLogic, IEditorialLogic editorialLogic, ILibroLogic libroLogic, IGeneroLogic generoLogic)
         {
             _personaLogic = personaLogic;
             _autorLogic = autorLogic;
             _editorialLogic = editorialLogic;
+            _libroLogic = libroLogic;
             InitializeComponent();
+            _generoLogic = generoLogic;
         }
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -45,15 +50,29 @@ namespace CPresentacion
         private void autoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ABMAutor abmautores = new ABMAutor(_autorLogic, _personaLogic);
+            ABMAutor abmautores = new ABMAutor(_autorLogic, _personaLogic, _editorialLogic, _libroLogic, _generoLogic);
             abmautores.Show();
         }
 
         private void editorialToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ABMEditorial abmEditorial = new ABMEditorial(_editorialLogic);
+            ABMEditorial abmEditorial = new ABMEditorial(_editorialLogic, _autorLogic, _personaLogic, _libroLogic,_generoLogic);
             abmEditorial.Show();
+        }
+
+        private void librosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMLibro abmLibro = new ABMLibro(_libroLogic, _editorialLogic, _autorLogic, _personaLogic,_generoLogic);
+            abmLibro.Show();
+        }
+
+        private void generoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ABMGenero abmGenero = new ABMGenero(_personaLogic, _autorLogic,_editorialLogic,_libroLogic, _generoLogic);
+            abmGenero.Show();
         }
     }
 }
