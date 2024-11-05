@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CDatos.Repositories
+namespace CLogica.Contracts
 {
-    public class FormaDePagoRepository
+    public interface IGeneroLibroLogic
     {
     }
 }

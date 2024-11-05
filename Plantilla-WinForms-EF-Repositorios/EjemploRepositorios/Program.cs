@@ -17,9 +17,6 @@ namespace EjemploRepositorios
     {
         public static IServiceProvider _serviceProvider { get; private set; }
 
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CLogica.Contracts
+namespace CLogica.Implementations
 {
-    public interface IFormaDePagoLogic
+    public class GeneroLibroLogic
     {
     }
 }
