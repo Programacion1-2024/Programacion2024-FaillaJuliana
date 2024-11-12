@@ -1,0 +1,14 @@
+C:\Users\faill\source\repos\Carniceria\CEntidades\bin\Debug\net8.0\CEntidades.deps.json
+C:\Users\faill\source\repos\Carniceria\CEntidades\bin\Debug\net8.0\CEntidades.runtimeconfig.json
+C:\Users\faill\source\repos\Carniceria\CEntidades\bin\Debug\net8.0\CEntidades.dll
+C:\Users\faill\source\repos\Carniceria\CEntidades\bin\Debug\net8.0\CEntidades.pdb
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\CEntidades.csproj.AssemblyReference.cache
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\CEntidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\CEntidades.AssemblyInfoInputs.cache
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\CEntidades.AssemblyInfo.cs
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\CEntidades.csproj.CoreCompileInputs.cache
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\CEntidades.dll
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\refint\CEntidades.dll
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\CEntidades.pdb
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\CEntidades.genruntimeconfig.cache
+C:\Users\faill\source\repos\Carniceria\CEntidades\obj\Debug\net8.0\ref\CEntidades.dll

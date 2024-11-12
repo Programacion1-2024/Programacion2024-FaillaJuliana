@@ -1,0 +1,17 @@
+C:\Users\faill\source\repos\Carniceria\CDatos\bin\Debug\net8.0\CDatos.deps.json
+C:\Users\faill\source\repos\Carniceria\CDatos\bin\Debug\net8.0\CDatos.runtimeconfig.json
+C:\Users\faill\source\repos\Carniceria\CDatos\bin\Debug\net8.0\CDatos.dll
+C:\Users\faill\source\repos\Carniceria\CDatos\bin\Debug\net8.0\CDatos.pdb
+C:\Users\faill\source\repos\Carniceria\CDatos\bin\Debug\net8.0\CEntidades.dll
+C:\Users\faill\source\repos\Carniceria\CDatos\bin\Debug\net8.0\CEntidades.pdb
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.csproj.AssemblyReference.cache
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.AssemblyInfoInputs.cache
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.AssemblyInfo.cs
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.csproj.CoreCompileInputs.cache
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.csproj.Up2Date
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.dll
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\refint\CDatos.dll
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.pdb
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\CDatos.genruntimeconfig.cache
+C:\Users\faill\source\repos\Carniceria\CDatos\obj\Debug\net8.0\ref\CDatos.dll

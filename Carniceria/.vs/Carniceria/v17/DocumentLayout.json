@@ -1,0 +1,104 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\faill\\source\\repos\\Carniceria\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4BECF7B3-91D6-46FB-BD35-05E450A1A53A}|Carniceria\\CPresentacion.csproj|c:\\users\\faill\\source\\repos\\carniceria\\carniceria\\vistausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4BECF7B3-91D6-46FB-BD35-05E450A1A53A}|Carniceria\\CPresentacion.csproj|solutionrelative:carniceria\\vistausuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9491476E-CB28-4A14-943D-A4A470417FC5}|CNegocio\\CNegocio.csproj|c:\\users\\faill\\source\\repos\\carniceria\\cnegocio\\logic\\cortelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9491476E-CB28-4A14-943D-A4A470417FC5}|CNegocio\\CNegocio.csproj|solutionrelative:cnegocio\\logic\\cortelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46A802D6-CF44-4205-915F-FACE927BB8D6}|CEntidades\\CEntidades.csproj|c:\\users\\faill\\source\\repos\\carniceria\\centidades\\corte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46A802D6-CF44-4205-915F-FACE927BB8D6}|CEntidades\\CEntidades.csproj|solutionrelative:centidades\\corte.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9491476E-CB28-4A14-943D-A4A470417FC5}|CNegocio\\CNegocio.csproj|c:\\users\\faill\\source\\repos\\carniceria\\cnegocio\\contracts\\icortelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9491476E-CB28-4A14-943D-A4A470417FC5}|CNegocio\\CNegocio.csproj|solutionrelative:cnegocio\\contracts\\icortelogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FB15382-2DA4-47D3-9CD1-D0C96BFC149F}|CDatos\\CDatos.csproj|c:\\users\\faill\\source\\repos\\carniceria\\cdatos\\carniceriacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0FB15382-2DA4-47D3-9CD1-D0C96BFC149F}|CDatos\\CDatos.csproj|solutionrelative:cdatos\\carniceriacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 265,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VistaUsuario.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\faill\\source\\repos\\Carniceria\\Carniceria\\VistaUsuario.cs",
+              "RelativeDocumentMoniker": "Carniceria\\VistaUsuario.cs",
+              "ToolTip": "C:\\Users\\faill\\source\\repos\\Carniceria\\Carniceria\\VistaUsuario.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Carniceria\\VistaUsuario.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T00:42:49.029Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICorteLogic.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\source\\repos\\Carniceria\\CNegocio\\Contracts\\ICorteLogic.cs",
+              "RelativeDocumentMoniker": "CNegocio\\Contracts\\ICorteLogic.cs",
+              "ToolTip": "C:\\Users\\faill\\source\\repos\\Carniceria\\CNegocio\\Contracts\\ICorteLogic.cs",
+              "RelativeToolTip": "CNegocio\\Contracts\\ICorteLogic.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T00:38:02.04Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CorteLogic.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\source\\repos\\Carniceria\\CNegocio\\Logic\\CorteLogic.cs",
+              "RelativeDocumentMoniker": "CNegocio\\Logic\\CorteLogic.cs",
+              "ToolTip": "C:\\Users\\faill\\source\\repos\\Carniceria\\CNegocio\\Logic\\CorteLogic.cs",
+              "RelativeToolTip": "CNegocio\\Logic\\CorteLogic.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T00:36:47.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Corte.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\source\\repos\\Carniceria\\CEntidades\\Corte.cs",
+              "RelativeDocumentMoniker": "CEntidades\\Corte.cs",
+              "ToolTip": "C:\\Users\\faill\\source\\repos\\Carniceria\\CEntidades\\Corte.cs",
+              "RelativeToolTip": "CEntidades\\Corte.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-12T00:36:34.17Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CarniceriaContext.cs",
+              "DocumentMoniker": "C:\\Users\\faill\\source\\repos\\Carniceria\\CDatos\\CarniceriaContext.cs",
+              "RelativeDocumentMoniker": "CDatos\\CarniceriaContext.cs",
+              "ToolTip": "C:\\Users\\faill\\source\\repos\\Carniceria\\CDatos\\CarniceriaContext.cs",
+              "RelativeToolTip": "CDatos\\CarniceriaContext.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwBQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T21:43:06.721Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
